@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciogvgsqxbkrj"]
+
+[ext_resource type="Script" path="res://components/SpawnComponent.gd" id="1_g8yfr"]
+
+[node name="SpawnComponent" type="Node2D"]
+position = Vector2(7, 8)
+script = ExtResource("1_g8yfr")
