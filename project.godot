@@ -15,13 +15,19 @@ run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 SceneManager="*res://SceneManager.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/viewport_width=240
+window/size/viewport_height=135
+window/size/mode=3
 
 [editor_plugins]
 
