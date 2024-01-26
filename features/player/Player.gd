@@ -1,59 +1,36 @@
-extends CharacterBody3D
+extends CharacterBody2D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const RAY_LENGTH = 1000
+@export var speed = 600.0
+@export var damping = 0.6
 
-@export var camera: Camera3D
-
-@onready var pivot = $Pivot
-@onready var animation_player = $AnimationPlayer
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var dash_cooldown = $DashCooldown
+var dash_speed = 0
+@onready var dash_damping = 0.9
 
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_up", "move_down")
+	var direction = Vector2(direction_x,direction_y).normalized()
+	if direction.length():
+		velocity = direction * speed + direction * dash_speed
+	else:
+		velocity *= damping
 		
-	
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction.length() > 0:
-		animation_player.play("walk")
-	else:
-		animation_player.play("RESET")
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	dash_speed *= dash_damping
+		
+	if Input.is_action_just_pressed("dash"):
+		dash()
 
 	move_and_slide()
 	
-	
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_length = 100
-	var from = camera.project_ray_origin(mouse_pos)
-	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
-	var space = get_world_3d().direct_space_state
-	var ray_query = PhysicsRayQueryParameters3D.new()
-	ray_query.from = from
-	ray_query.to = to
-	ray_query.collide_with_areas = true
-	var raycast_result = space.intersect_ray(ray_query)
-	if raycast_result.has("position"):
-		pivot.look_at(raycast_result["position"], Vector3.UP)
-		
-	
+
+func dash():
+	if dash_cooldown.is_stopped():
+		dash_cooldown.start()
+		dash_speed = 2000
+
+
+func _on_dash_cooldown_timeout():
+	dash_cooldown.stop()
