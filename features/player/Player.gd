@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var dash_cooldown = $DashCooldown
 var dash_speed = 0
 @onready var dash_damping = 0.9
+@onready var dash_particle = $GPUParticles2D
 
 
 func _physics_process(delta):
@@ -19,6 +20,9 @@ func _physics_process(delta):
 		velocity *= damping
 		
 	dash_speed *= dash_damping
+	
+	if dash_speed <= 200:
+		dash_particle.emitting = false
 		
 	if Input.is_action_just_pressed("dash"):
 		dash()
@@ -28,6 +32,7 @@ func _physics_process(delta):
 
 func dash():
 	if dash_cooldown.is_stopped():
+		dash_particle.emitting = true
 		dash_cooldown.start()
 		dash_speed = 2000
 
