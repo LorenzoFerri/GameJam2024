@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://qsiti5fr6f4c"]
+
+[ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_02m48"]
+[ext_resource type="Terrain3DStorage" uid="uid://bw2e8ahc36b5f" path="res://features/new_terrain_3d_storage.res" id="2_ybk1x"]
+[ext_resource type="Terrain3DMaterial" uid="uid://l247mtxrm62b" path="res://features/new_terrain_3d_material.tres" id="3_mfry2"]
+[ext_resource type="Terrain3DTextureList" uid="uid://c1fd5ebyo246x" path="res://features/new_terrain_3d_texture_list.tres" id="4_2tdjh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.676876, 0.637479, -0.368049, 0, 0.5, 0.866025, 0.736097, -0.586192, 0.338438, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_02m48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288582, 0)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("2_ybk1x")
+material = ExtResource("3_mfry2")
+texture_list = ExtResource("4_2tdjh")
