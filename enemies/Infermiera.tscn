@@ -1,14 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dga6iu5hdvowr"]
+[gd_scene load_steps=5 format=3 uid="uid://dga6iu5hdvowr"]
 
 [ext_resource type="Texture2D" uid="uid://c1uv6ygtqp4wm" path="res://icon.svg" id="1_k8i5k"]
+[ext_resource type="Script" path="res://enemies/Infermiera.gd" id="1_rwjce"]
+[ext_resource type="PackedScene" uid="uid://dgqnxg0fofywc" path="res://components/AIComponent.tscn" id="2_y4oc6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h27fb"]
-size = Vector2(136, 134)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qg3wk"]
+radius = 57.0088
 
 [node name="Infermiera" type="CharacterBody2D"]
+script = ExtResource("1_rwjce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_h27fb")
+shape = SubResource("CircleShape2D_qg3wk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_k8i5k")
+
+[node name="AIComponent" parent="." instance=ExtResource("2_y4oc6")]
+is_active = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
