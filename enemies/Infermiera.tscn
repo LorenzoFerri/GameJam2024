@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dga6iu5hdvowr"]
+
+[ext_resource type="Texture2D" uid="uid://c1uv6ygtqp4wm" path="res://icon.svg" id="1_k8i5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h27fb"]
+size = Vector2(136, 134)
+
+[node name="Infermiera" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h27fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k8i5k")
