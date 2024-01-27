@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3n3aeuhfefbl"]
+[gd_scene load_steps=5 format=3 uid="uid://bci3xbqklevps"]
 
-[ext_resource type="Script" path="res://story/intro.gd" id="1_n4ef6"]
+[ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_4t4wl"]
+[ext_resource type="Texture2D" uid="uid://d125835e0m2fp" path="res://assets/intro/slide1.png" id="2_mqgck"]
+[ext_resource type="Texture2D" uid="uid://b744gdnsbchqr" path="res://assets/intro/slide2.png" id="3_enhlc"]
+[ext_resource type="Texture2D" uid="uid://oatu8w0qr226" path="res://assets/intro/slide3.png" id="4_6neu6"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -9,26 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n4ef6")
 
-[node name="SlideImage" type="TextureRect" parent="."]
+[node name="Slideshow" parent="." instance=ExtResource("1_4t4wl")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NarrationText" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -517.0
-offset_top = -107.0
-offset_right = 517.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Placeholder"
+images = Array[Texture]([ExtResource("2_mqgck"), ExtResource("3_enhlc"), ExtResource("4_6neu6")])
+texts = Array[String](["Il clown prova a far ridere il bambino malato, ma il bambino non sembra divertito.", "Un'infermiera entra e inciampa cadendo di faccia.", "Il bambino scoppia a ridere. Il clown capisce che per divertire il bambino serve la violenza."])
