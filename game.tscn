@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_lv08r"]
-[ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
 [ext_resource type="Texture2D" uid="uid://bm1ja1h6pqrct" path="res://assets/map/tailset FORSE ostacoli_Tavola disegno DASHA.png" id="3_cdhl4"]
+[ext_resource type="PackedScene" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_lv08r")
