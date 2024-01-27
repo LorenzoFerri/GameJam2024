@@ -6,7 +6,7 @@ extends Node2D
 @export var frenzy_threshold = 80
 
 @onready var player = $Player
-@onready var enemy_spawn = $InfermieraSpawn
+@onready var enemy_spawn = $EnemySpawner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

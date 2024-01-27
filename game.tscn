@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=14 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_lv08r"]
 [ext_resource type="Texture2D" uid="uid://dafoaidbq8yy7" path="res://assets/map/Tileset decorazioni da parete FINALE.png" id="3_qlmix"]
 [ext_resource type="Texture2D" uid="uid://eyqab5hebepf" path="res://assets/map/Tileset ostacoli FINALE.png" id="4_kbu2f"]
-[ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
-[ext_resource type="PackedScene" uid="uid://bggyf2f5x274p" path="res://enemies/Dottore.tscn" id="7_5epl4"]
 [ext_resource type="PackedScene" uid="uid://os081xsiie2t" path="res://features/child/Child.tscn" id="7_xka4l"]
+[ext_resource type="PackedScene" uid="uid://cgmn35n28db20" path="res://components/EnemySpawn.tscn" id="8_50hrc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_lv08r")
@@ -1996,9 +1995,6 @@ theme_override_font_sizes/font_size = 48
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_am0ot")
 
-[node name="InfermieraSpawn" parent="." instance=ExtResource("5_45xq4")]
-position = Vector2(1405, 158)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FrenzyBar" type="ProgressBar" parent="CanvasLayer"]
@@ -2021,6 +2017,5 @@ theme_override_font_sizes/font_size = 48
 [node name="Child" parent="." instance=ExtResource("7_xka4l")]
 position = Vector2(251, 287)
 
-[node name="Dottore" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_5epl4")]
-position = Vector2(1081, 490)
-target = NodePath("../Player")
+[node name="EnemySpawner" parent="." instance=ExtResource("8_50hrc")]
+position = Vector2(1398, 168)

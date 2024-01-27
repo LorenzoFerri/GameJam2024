@@ -1,11 +1,11 @@
 extends Marker2D
 
-@export var wave_max_number: int = 15
-@export var displayable_enemies: int = 7
-@export var spawn_timer_timeout: int = 5
-var enemy_scene = preload("res://enemies/Infermiera.tscn")
+@export var wave_max_number: int = 5
+@export var displayable_enemies: int = 2
+@export var spawn_timer_timeout: int = 7
+var enemy_scene = preload("res://enemies/Dottore.tscn")
 
-@onready var spawn_timer: Timer = $InfermieraSpawnTimer
+@onready var spawn_timer: Timer = $MedicoSpawnTimer
 
 var wave_count: int = 0
 
@@ -36,7 +36,7 @@ func get_enemy_on_screen():
 	var enemies_on_screen = Array()
 	
 	for a in get_tree().get_nodes_in_group("enemies"):
-		if a.name.contains("Infermiera"):
+		if a.name.contains("Dottore"):
 			enemies_on_screen.append(a)
 	
 	return enemies_on_screen.size()
