@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://x1t5lalggoo7"]
+[gd_scene load_steps=2 format=3 uid="uid://c3n3aeuhfefbl"]
 
 [ext_resource type="Script" path="res://story/intro.gd" id="1_n4ef6"]
 
@@ -26,4 +26,4 @@ grow_vertical = 0
 text = "Placeholder"
 
 [node name="SlideImage" type="Sprite2D" parent="."]
-position = Vector2(14, 527)
+position = Vector2(552, 345)
