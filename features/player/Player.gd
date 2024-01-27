@@ -9,8 +9,8 @@ var dash_speed = 0
 @onready var dash_damping = 0.9
 @onready var dash_particle := $DashParticles
 @onready var animated_sprite := $AnimatedSprite2D
-@onready var hurt_box := $HurtBox
-@onready var smear := $HurtBox/Smear
+@onready var hit_box := $HitBox
+@onready var smear := $HitBox/Smear
 @onready var hp_bar := $CanvasLayer/HealtBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
@@ -30,7 +30,7 @@ func _physics_process(delta):
 	if direction.length():
 		last_direction = direction
 		velocity = direction * speed + direction * dash_speed
-		hurt_box.rotation = direction.angle()
+		hit_box.rotation = direction.angle()
 	else:
 		velocity *= damping
 	
@@ -92,7 +92,7 @@ func _on_animated_sprite_2d_frame_changed():
 		if animated_sprite.frame == 1:
 			direction /= 10
 		if animated_sprite.frame == 3:
-			for body in hurt_box.get_overlapping_bodies():
+			for body in hit_box.get_overlapping_areas():
 				hit_body(body)
 			smear.visible = true
 			if direction == Vector2.ZERO:
@@ -106,12 +106,14 @@ func update_health(old_value, new_value):
 	hp_bar.value = new_value
 
 func hit_body(body):
-	if body.get_name() == "Player":
+	if body.get_parent().get_name() == "Player":
 		return
-	var hp_comp = body.get_node_or_null("HealthComponent")
+	if body.get_name() == "HitBox":
+		return
+	var hp_comp = body.get_parent().get_node_or_null("HealthComponent")
 	if hp_comp != null:
 		hp_comp.take_damage(10)
-		game.increase_frenzy(4)
+		game.increase_frenzy(8)
 
 func set_on_frenzy(val: bool):
 	frenzy_particles.visible = val

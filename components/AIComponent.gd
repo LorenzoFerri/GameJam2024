@@ -9,7 +9,7 @@ var is_attacking: bool = false
 var player_position: Vector2 = Vector2(10, 10)
 
 @onready var sprite = get_parent().get_node("Sprite")
-@onready var hitbox: Area2D = get_parent().get_node("Hitbox")
+@onready var hitbox: Area2D = get_parent().get_node("HitBox")
 @onready var hitbox_polygon = get_parent().get_node("HitboxPolygon")
 
 # Called when the node enters the scene tree for the first time.
@@ -43,17 +43,19 @@ func on_frame_changed():
 		return
 		
 	if sprite.get_frame() == 8:
-		for body in hitbox.get_overlapping_bodies():
+		for body in hitbox.get_overlapping_areas():
 			hit_body(body)
 	
 	if sprite.get_frame() == 5:
 		hitbox_polygon.visible = true
 
 func hit_body(body):
-	if body.get_name() != "Player":
+	if body.get_parent().get_name() != "Player":
 		return
-	var hpComp = body.get_node_or_null("HealthComponent")
+	if body.get_name() == "HitBox":
+		return
+	var hpComp = body.get_parent().get_node_or_null("HealthComponent")
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
-		body.get_parent().increase_frenzy(8)
+		body.get_parent().get_parent().increase_frenzy(12)
 		

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var frenzy_value: float = 50
+var frenzy_value: float = 70
 @onready var frenzy_bar = $CanvasLayer/FrenzyBar
 @export var frenzy_threshold = 80
 
@@ -14,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	decrease_frenzy(delta / 2)
+	decrease_frenzy(delta * 4)
 
 func increase_frenzy(val: float):
 	frenzy_value += val
@@ -29,6 +29,9 @@ func decrease_frenzy(val: float):
 	frenzy_value -= val
 	if frenzy_value <= 0:
 		SceneManager.lose_cringe()
+	
+	if frenzy_value > frenzy_threshold:
+		frenzy_value -= val
 	
 	frenzy_bar.value = ceil(frenzy_value)
 	
