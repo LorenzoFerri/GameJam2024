@@ -1,9 +1,9 @@
 extends Node2D
 
 
-var frenzy_value: float = 0
+var frenzy_value: float = 50
 @onready var frenzy_label = $FrenzyLabel
-@export var frenzy_threshold = 50
+@export var frenzy_threshold = 80
 
 @onready var player = $Player
 @onready var enemySpawn = $InfermieraSpawn
@@ -27,8 +27,8 @@ func increase_frenzy(val: float):
 
 func decrease_frenzy(val: float):
 	frenzy_value -= val
-	if frenzy_value < 0:
-		frenzy_value = 0
+	if frenzy_value <= 0:
+		get_tree().quit()
 	
 	frenzy_label.text = str(ceil(frenzy_value))
 	
@@ -36,4 +36,4 @@ func decrease_frenzy(val: float):
 
 func win():
 	if enemySpawn.is_finish():
-		print("WOOOO")
+		get_tree().quit()

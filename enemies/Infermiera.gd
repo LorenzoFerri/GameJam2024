@@ -13,6 +13,7 @@ var movement_target_position: Vector2 = Vector2(60.0,180.0)
 @onready var hit_box = $Hitbox
 @onready var hit_box_polygon = $HitboxPolygon
 @onready var attack_cooldown: Timer = $AttackCooldown
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var target: Node2D
 
@@ -77,3 +78,7 @@ func on_is_dead():
 
 func update_health(old_value, new_value):
 	hp_label.text = str(new_value)
+
+
+func _on_health_component_took_damage(old_value, new_value):
+	animation_player.play("took_damage")
