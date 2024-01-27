@@ -1629,7 +1629,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(143, 143, 147, 945, 1784, 953, 1786, 146)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["enemies"]]
 script = ExtResource("1_xn5e7")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1652,5 +1652,5 @@ theme_override_font_sizes/font_size = 48
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_am0ot")
 
-[node name="InfermieraSpawn" parent="." groups=["enemies"] instance=ExtResource("5_45xq4")]
+[node name="InfermieraSpawn" parent="." instance=ExtResource("5_45xq4")]
 position = Vector2(400, 225)
