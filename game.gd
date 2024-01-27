@@ -6,11 +6,14 @@ var frenzy_value: float = 50
 @export var frenzy_threshold = 80
 
 @onready var player = $Player
-@onready var enemySpawn = $InfermieraSpawn
+@onready var enemy_spawn = $InfermieraSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+	
+func _process(delta):
+	win()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -35,5 +38,5 @@ func decrease_frenzy(val: float):
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
 
 func win():
-	if enemySpawn.is_finish():
+	if enemy_spawn.is_finish():
 		SceneManager.win()
