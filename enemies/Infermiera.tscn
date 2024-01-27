@@ -1,11 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://dga6iu5hdvowr"]
+[gd_scene load_steps=20 format=3 uid="uid://dga6iu5hdvowr"]
 
-[ext_resource type="Texture2D" uid="uid://c1uv6ygtqp4wm" path="res://icon.svg" id="1_k8i5k"]
 [ext_resource type="Script" path="res://enemies/Infermiera.gd" id="1_rwjce"]
+[ext_resource type="Texture2D" uid="uid://dri3spfvc0ybl" path="res://assets/nurse/attack/IMG_1410.PNG" id="2_shiom"]
 [ext_resource type="PackedScene" uid="uid://dgqnxg0fofywc" path="res://components/AIComponent.tscn" id="2_y4oc6"]
+[ext_resource type="Texture2D" uid="uid://do07w1n1kff43" path="res://assets/nurse/attack/IMG_1411.PNG" id="3_mbnee"]
+[ext_resource type="Texture2D" uid="uid://p08hbbh7tpki" path="res://assets/nurse/attack/IMG_1412.PNG" id="4_fner2"]
+[ext_resource type="Texture2D" uid="uid://cfdbfxniv3t3x" path="res://assets/nurse/attack/IMG_1413.PNG" id="5_sydsb"]
+[ext_resource type="Texture2D" uid="uid://d277onckikd38" path="res://assets/nurse/attack/IMG_1414.PNG" id="6_trixx"]
+[ext_resource type="Texture2D" uid="uid://wt6nlx6mn2fa" path="res://assets/nurse/attack/IMG_1415.PNG" id="7_wv242"]
+[ext_resource type="Texture2D" uid="uid://bhcvi48hdxqab" path="res://assets/nurse/attack/IMG_1416.PNG" id="8_r8obs"]
+[ext_resource type="Texture2D" uid="uid://bv7cdj4xvm63g" path="res://assets/nurse/attack/IMG_1417.png" id="9_76pqb"]
+[ext_resource type="Texture2D" uid="uid://brchk0cnj8hgs" path="res://assets/nurse/walk_cycle/IMG_1420.PNG" id="10_rl2yj"]
+[ext_resource type="Texture2D" uid="uid://cv1lmbke0akrj" path="res://assets/nurse/walk_cycle/IMG_1421.PNG" id="11_ndw0e"]
+[ext_resource type="Texture2D" uid="uid://babjv1gbq2yj8" path="res://assets/nurse/walk_cycle/IMG_1422.PNG" id="12_cd62v"]
+[ext_resource type="Texture2D" uid="uid://bvycabxiqas1x" path="res://assets/nurse/walk_cycle/IMG_1423.PNG" id="13_vu2v1"]
+[ext_resource type="Texture2D" uid="uid://b1s4fohedfb64" path="res://assets/nurse/walk_cycle/IMG_1424.PNG" id="14_37ssp"]
+[ext_resource type="PackedScene" uid="uid://cbfbchdsgnnw7" path="res://components/HealthComponent.tscn" id="16_ltvpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qg3wk"]
 radius = 57.0088
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8h5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_shiom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mbnee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fner2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sydsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_trixx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wv242")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r8obs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r8obs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_76pqb")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rl2yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ndw0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cd62v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vu2v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_37ssp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sy6p"]
+size = Vector2(144, 263)
 
 [node name="Infermiera" type="CharacterBody2D"]
 script = ExtResource("1_rwjce")
@@ -13,11 +84,24 @@ script = ExtResource("1_rwjce")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qg3wk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_k8i5k")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_m8h5w")
+animation = &"walk"
+frame_progress = 0.439547
+offset = Vector2(150, 0)
 
 [node name="AIComponent" parent="." instance=ExtResource("2_y4oc6")]
 is_active = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(72, 3.5)
+shape = SubResource("RectangleShape2D_5sy6p")
+
+[node name="HealthComponent" parent="." instance=ExtResource("16_ltvpa")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8e4v6f5px6rd"]
+[gd_scene load_steps=16 format=3 uid="uid://8e4v6f5px6rd"]
 
 [ext_resource type="Script" path="res://features/player/Player.gd" id="1_oweex"]
 [ext_resource type="Texture2D" uid="uid://dos1f0bxxfv3m" path="res://assets/Player/idle.png" id="3_01pee"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cw5cdainbyl68" path="res://assets/Player/attack5.png" id="7_chgpq"]
 [ext_resource type="Texture2D" uid="uid://dufup3e8a0ord" path="res://assets/Player/attack6.png" id="8_xsa2f"]
 [ext_resource type="Texture2D" uid="uid://ccqiebyi8c8q5" path="res://assets/Player/attack7.png" id="9_8tfe0"]
+[ext_resource type="PackedScene" uid="uid://cbfbchdsgnnw7" path="res://components/HealthComponent.tscn" id="10_5ihta"]
 
 [sub_resource type="Curve" id="Curve_sb7ip"]
 _data = [Vector2(0, 0.600658), 0.0, -0.600658, 0, 1, Vector2(1, 0), -0.600658, 0.0, 1, 0]
@@ -76,11 +77,22 @@ amount = 4
 process_material = SubResource("ParticleProcessMaterial_7oo71")
 texture = ExtResource("3_01pee")
 speed_scale = 8.0
+trail_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_maqw4")
 
 [node name="DashCooldown" type="Timer" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)
+
+[node name="Smear" type="Polygon2D" parent="HurtBox"]
+visible = false
+polygon = PackedVector2Array(53, -131, 81, -83, 100, -22, 98, 14, 97, 45, 80, 65, 44, 100, 91, 82, 116, 66, 137, 48, 152, 24, 155, -13, 152, -44, 127, -73, 106, -94, 79, -111)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -90,16 +102,7 @@ autoplay = "idle"
 frame = 6
 frame_progress = 1.0
 
-[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
-scale = Vector2(2, 2)
-monitoring = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/HurtBox"]
-polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)
-
-[node name="Smear" type="Polygon2D" parent="AnimatedSprite2D/HurtBox"]
-visible = false
-polygon = PackedVector2Array(53, -131, 81, -83, 100, -22, 98, 14, 97, 45, 80, 65, 44, 100, 91, 82, 116, 66, 137, 48, 152, 24, 155, -13, 152, -44, 127, -73, 106, -94, 79, -111)
+[node name="HealthComponent" parent="." instance=ExtResource("10_5ihta")]
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

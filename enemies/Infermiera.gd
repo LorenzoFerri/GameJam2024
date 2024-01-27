@@ -3,16 +3,20 @@ extends CharacterBody2D
 var movement_speed: float = 200.0
 var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
+@export var attack_range: float = 180.0
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var health_component = $HealthComponent
 
 func _ready():
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
+	navigation_agent.path_desired_distance = attack_range
+	navigation_agent.target_desired_distance = attack_range
 
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
+	health_component.is_dead.connect(on_is_dead)
 	
 
 func actor_setup():
@@ -27,10 +31,25 @@ func set_movement_target(movement_target: Vector2):
 
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
+		if not $AIComponent.is_attacking:
+			$AIComponent.start_attack()
+		return
+	
+	if $AIComponent.is_attacking:
 		return
 
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
+	$Sprite.play("walk")
+	
+	if velocity.x > 0:
+		$Sprite.scale.x = abs($Sprite.scale.x)
+	else:
+		$Sprite.scale.x = abs($Sprite.scale.x) * -1
+	
 	move_and_slide()
+
+func on_is_dead():
+	queue_free()
