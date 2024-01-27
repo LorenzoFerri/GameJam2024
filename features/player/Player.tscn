@@ -1,17 +1,18 @@
-[gd_scene load_steps=29 format=3 uid="uid://8e4v6f5px6rd"]
+[gd_scene load_steps=30 format=3 uid="uid://8e4v6f5px6rd"]
 
 [ext_resource type="Script" path="res://features/player/Player.gd" id="1_oweex"]
-[ext_resource type="Texture2D" uid="uid://bx0qt1c4ujd73" path="res://assets/Player/attack1.png" id="3_lw1dv"]
-[ext_resource type="Texture2D" uid="uid://do4f88u8n7tqk" path="res://assets/Player/attack2.png" id="4_g7mgg"]
-[ext_resource type="Texture2D" uid="uid://dcqh0lp3udf1e" path="res://assets/Player/attack3.png" id="5_h4w1s"]
-[ext_resource type="Texture2D" uid="uid://c4kjp3btd7kqn" path="res://assets/Player/attack4.png" id="6_oema8"]
-[ext_resource type="Texture2D" uid="uid://cw5cdainbyl68" path="res://assets/Player/attack5.png" id="7_chgpq"]
+[ext_resource type="Texture2D" uid="uid://cqq3es1wfx582" path="res://assets/Player/attack/IMG_1492.png" id="5_jtfjc"]
+[ext_resource type="Texture2D" uid="uid://bo07qgd3npkg8" path="res://assets/Player/attack/IMG_1493.png" id="6_jgnlm"]
+[ext_resource type="Texture2D" uid="uid://bha150b85aay0" path="res://assets/Player/attack/IMG_1494.png" id="7_7dgoo"]
+[ext_resource type="Texture2D" uid="uid://b0f0kkokxxerh" path="res://assets/Player/attack/IMG_1495.png" id="8_i3pwv"]
 [ext_resource type="Texture2D" uid="uid://dufup3e8a0ord" path="res://assets/Player/attack6.png" id="8_xsa2f"]
 [ext_resource type="Texture2D" uid="uid://cjww63vm3wflp" path="res://assets/Player/walk/IMG_1443.png" id="9_8cfe3"]
-[ext_resource type="Texture2D" uid="uid://ccqiebyi8c8q5" path="res://assets/Player/attack7.png" id="9_8tfe0"]
+[ext_resource type="Texture2D" uid="uid://ckb8fq18tm7w5" path="res://assets/Player/attack/IMG_1496.png" id="9_uh5xk"]
 [ext_resource type="PackedScene" uid="uid://cbfbchdsgnnw7" path="res://components/HealthComponent.tscn" id="10_5ihta"]
+[ext_resource type="Texture2D" uid="uid://ioer0p1rgelp" path="res://assets/Player/attack/IMG_1497.png" id="10_7ftfw"]
 [ext_resource type="Texture2D" uid="uid://dlhu3owe1xupl" path="res://assets/Player/walk/IMG_1442.png" id="10_cpbpp"]
 [ext_resource type="Texture2D" uid="uid://cx157gqisv3ms" path="res://assets/Player/walk/IMG_1444.png" id="11_1d78p"]
+[ext_resource type="Texture2D" uid="uid://c47bkr78ay1us" path="res://assets/Player/attack/IMG_1498.png" id="11_itsxb"]
 [ext_resource type="Texture2D" uid="uid://do8ql8dvf1yi2" path="res://assets/Player/walk/IMG_1445.png" id="12_ccam8"]
 [ext_resource type="Texture2D" uid="uid://bkcyshu3gerxn" path="res://assets/Player/walk/IMG_1446.png" id="13_hok7f"]
 
@@ -64,29 +65,29 @@ radius = 38.75
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_lw1dv")
+"texture": ExtResource("5_jtfjc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_g7mgg")
+"texture": ExtResource("6_jgnlm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_h4w1s")
+"texture": ExtResource("7_7dgoo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_oema8")
+"texture": ExtResource("8_i3pwv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_chgpq")
+"texture": ExtResource("9_uh5xk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_xsa2f")
+"texture": ExtResource("10_7ftfw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_8tfe0")
+"texture": ExtResource("11_itsxb")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 15.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,14 +198,16 @@ collision_mask = 3
 polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)
 
 [node name="Smear" type="Polygon2D" parent="HitBox"]
-visible = false
-polygon = PackedVector2Array(53, -131, 81, -83, 100, -22, 98, 14, 97, 45, 80, 65, 44, 100, 91, 82, 116, 66, 137, 48, 152, 24, 155, -13, 152, -44, 127, -73, 106, -94, 79, -111)
+position = Vector2(280, -12.5)
+color = Color(0, 0.615686, 0.627451, 1)
+polygon = PackedVector2Array(-145, -213.75, -93.75, -180, -47.5, -126.25, -13.75, -53.75, 1.25002, 37.5, -11.25, 133.75, -83.75, 185, -92.5, 127.5, -71.25, 41.25, -81.25, -47.5, -100, -126.25, -153.75, -221.25)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8yisj")
 animation = &"attack"
 autoplay = "idle"
+frame = 6
 frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

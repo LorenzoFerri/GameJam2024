@@ -79,11 +79,15 @@ func _on_dash_cooldown_timeout():
 	
 func attack():
 	animated_sprite.play("attack")
+	animated_sprite.offset = Vector2(125, -80)
+	dash_particle.process_material.emission_shape_offset = Vector3(60, -40, 0)
 
 
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "attack":
-		animated_sprite.animation = "idle"
+		animated_sprite.play("idle")
+		animated_sprite.offset = Vector2.ZERO
+		dash_particle.process_material.emission_shape_offset = Vector3.ZERO
 
 
 func _on_animated_sprite_2d_frame_changed():
@@ -91,14 +95,14 @@ func _on_animated_sprite_2d_frame_changed():
 	if animated_sprite.animation == "attack":
 		if animated_sprite.frame == 1:
 			direction /= 10
-		if animated_sprite.frame == 3:
+		if animated_sprite.frame == 4:
 			for body in hit_box.get_overlapping_areas():
 				hit_body(body)
 			smear.visible = true
 			if direction == Vector2.ZERO:
 				direction = last_direction
 			direction = direction.normalized() * 2
-		if animated_sprite.frame == 5:
+		if animated_sprite.frame == 6:
 			smear.visible = false
 			direction /= 10
 

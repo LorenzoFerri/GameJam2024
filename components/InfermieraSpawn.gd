@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var wave_max_number: int = 15
-@export var displayable_enemies: int = 7
+@export var displayable_enemies: int = 0
 @export var spawn_timer_timeout: int = 5
 var enemy_scene = preload("res://enemies/Infermiera.tscn")
 

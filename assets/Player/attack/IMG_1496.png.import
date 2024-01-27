@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj3ex3tfjqec"
-path="res://.godot/imported/IMG_1466.PNG-a1833a3f2ad97550d95a81623c5356e9.ctex"
+uid="uid://ckb8fq18tm7w5"
+path="res://.godot/imported/IMG_1496.png-373907063f2b34fe0ccbe5081ea4056b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/attack/IMG_1466.PNG"
-dest_files=["res://.godot/imported/IMG_1466.PNG-a1833a3f2ad97550d95a81623c5356e9.ctex"]
+source_file="res://assets/Player/attack/IMG_1496.png"
+dest_files=["res://.godot/imported/IMG_1496.png-373907063f2b34fe0ccbe5081ea4056b.ctex"]
 
 [params]
 
