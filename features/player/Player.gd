@@ -28,6 +28,10 @@ func _physics_process(delta):
 	else:
 		velocity *= damping
 	
+	if direction.length() > 0:
+		animated_sprite.play("walk")
+	else:
+		animated_sprite.play("idle")
 		
 	if direction.x > 0:
 		animated_sprite.scale.x = abs(animated_sprite.scale.x)
