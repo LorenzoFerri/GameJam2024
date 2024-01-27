@@ -2,7 +2,7 @@ extends Node2D
 
 
 var frenzy_value: float = 50
-@onready var frenzy_label = $FrenzyLabel
+@onready var frenzy_bar = $CanvasLayer/FrenzyBar
 @export var frenzy_threshold = 80
 
 @onready var player = $Player
@@ -21,7 +21,7 @@ func increase_frenzy(val: float):
 	if frenzy_value > 100:
 		frenzy_value = 100
 	
-	frenzy_label.text = str(ceil(frenzy_value))
+	frenzy_bar.value = ceil(frenzy_value)
 	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
 
@@ -30,7 +30,7 @@ func decrease_frenzy(val: float):
 	if frenzy_value <= 0:
 		get_tree().quit()
 	
-	frenzy_label.text = str(ceil(frenzy_value))
+	frenzy_bar.value = ceil(frenzy_value)
 	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
 

@@ -11,7 +11,7 @@ var dash_speed = 0
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hurt_box := $HurtBox
 @onready var smear := $HurtBox/Smear
-@onready var hp_label := $HpLabel
+@onready var hp_bar := $CanvasLayer/HealtBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
 var direction = Vector2.ZERO
@@ -102,7 +102,7 @@ func _on_animated_sprite_2d_frame_changed():
 			direction /= 10
 
 func update_health(old_value, new_value):
-	hp_label.text = str(new_value)
+	hp_bar.value = new_value
 
 func hit_body(body):
 	if body.get_name() == "Player":

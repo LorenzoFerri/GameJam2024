@@ -1644,13 +1644,27 @@ position = Vector2(692, 326)
 position = Vector2(1461, 710)
 target = NodePath("../Player")
 
-[node name="FrenzyLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 48
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_am0ot")
 
 [node name="InfermieraSpawn" parent="." instance=ExtResource("5_45xq4")]
 position = Vector2(400, 225)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FrenzyBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 0.717647, 0, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -577.0
+offset_top = -126.0
+offset_right = 574.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 48

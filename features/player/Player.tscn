@@ -168,7 +168,6 @@ script = ExtResource("1_oweex")
 
 [node name="FrenzyParticles" type="GPUParticles2D" parent="."]
 visible = false
-scale = Vector2(1, 1)
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_v4wa2")
 lifetime = 2.2
@@ -211,12 +210,17 @@ libraries = {
 
 [node name="HealthComponent" parent="." instance=ExtResource("10_5ihta")]
 
-[node name="HpLabel" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -153.0
-offset_right = 20.0
-offset_bottom = -130.0
-text = "100"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealtBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0.282353, 1, 0, 1)
+offset_left = 223.0
+offset_top = 176.0
+offset_right = 733.0
+offset_bottom = 231.0
+size_flags_horizontal = 0
+value = 100.0
+rounded = true
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
