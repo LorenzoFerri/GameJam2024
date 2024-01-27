@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ctkyk0hwne6"
-path="res://.godot/imported/Tailset ospedale ostaoli.png-846fe3976c04bf87b3a4264136137368.ctex"
+uid="uid://dafoaidbq8yy7"
+path="res://.godot/imported/Tileset decorazioni da parete FINALE.png-c0e00b6c0f34c5af62bdd3c2286f5418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/Tailset ospedale ostaoli.png"
-dest_files=["res://.godot/imported/Tailset ospedale ostaoli.png-846fe3976c04bf87b3a4264136137368.ctex"]
+source_file="res://assets/map/Tileset decorazioni da parete FINALE.png"
+dest_files=["res://.godot/imported/Tileset decorazioni da parete FINALE.png-c0e00b6c0f34c5af62bdd3c2286f5418.ctex"]
 
 [params]
 

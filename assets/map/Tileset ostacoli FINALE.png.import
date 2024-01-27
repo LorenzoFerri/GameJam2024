@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm1ja1h6pqrct"
-path="res://.godot/imported/tailset FORSE ostacoli_Tavola disegno DASHA.png-efec14dbcae1a7f8dcdf6ff727ab9bc7.ctex"
+uid="uid://eyqab5hebepf"
+path="res://.godot/imported/Tileset ostacoli FINALE.png-12318610a7159700b518096f110e6f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/tailset FORSE ostacoli_Tavola disegno DASHA.png"
-dest_files=["res://.godot/imported/tailset FORSE ostacoli_Tavola disegno DASHA.png-efec14dbcae1a7f8dcdf6ff727ab9bc7.ctex"]
+source_file="res://assets/map/Tileset ostacoli FINALE.png"
+dest_files=["res://.godot/imported/Tileset ostacoli FINALE.png-12318610a7159700b518096f110e6f7b.ctex"]
 
 [params]
 
