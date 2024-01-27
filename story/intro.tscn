@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3n3aeuhfefbl"]
+
+[ext_resource type="Script" path="res://story/intro.gd" id="1_n4ef6"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4ef6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 527.0
+offset_right = 1048.0
+offset_bottom = 634.0
+text = "Placeholder"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 527)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1069.0
+offset_top = 568.0
+offset_right = 1114.0
+offset_bottom = 599.0
+text = "Next"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_next_pressed"]
