@@ -110,3 +110,7 @@ func hit_body(body):
 
 func set_on_frenzy(val: bool):
 	print("On Frenzy")
+
+
+func _on_health_component_is_dead():
+	get_tree().quit()

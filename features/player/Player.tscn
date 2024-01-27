@@ -114,4 +114,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
+[connection signal="is_dead" from="HealthComponent" to="." method="_on_health_component_is_dead"]
 [connection signal="took_damage" from="HealthComponent" to="." method="update_health"]

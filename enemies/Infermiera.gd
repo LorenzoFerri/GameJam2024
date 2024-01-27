@@ -11,6 +11,7 @@ var movement_target_position: Vector2 = Vector2(60.0,180.0)
 @onready var sprite = $Sprite
 @onready var AI_component = $AIComponent
 @onready var hit_box = $Hitbox
+@onready var hit_box_polygon = $HitboxPolygon
 @onready var attack_cooldown: Timer = $AttackCooldown
 
 @export var target: Node2D
@@ -38,16 +39,24 @@ func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
 func _physics_process(delta):
+	set_movement_target(target.global_position)
 	if navigation_agent.is_navigation_finished():
 		if not AI_component.is_attacking:
+			hit_box_polygon.visible = false
 			AI_component.start_attack()
+			if global_position.direction_to(target.global_position).x > 0:
+				sprite.scale.x = abs(sprite.scale.x)
+			else:
+				sprite.scale.x = abs(sprite.scale.x) * -1
 			hit_box.look_at(target.global_position)
+			hit_box_polygon.look_at(target.global_position)
 		return
 	
 	if AI_component.is_attacking:
 		return
 		
 	hit_box.look_at(target.global_position)
+	hit_box_polygon.visible = false
 
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()

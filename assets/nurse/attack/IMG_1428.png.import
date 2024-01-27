@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfdbfxniv3t3x"
-path="res://.godot/imported/IMG_1413.PNG-a35fc3c24ac32a31307a996e2b992132.ctex"
+uid="uid://cjpww6187x4hl"
+path="res://.godot/imported/IMG_1428.png-01f051eac997ab6d97c526c5bf48b95c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nurse/attack/IMG_1413.PNG"
-dest_files=["res://.godot/imported/IMG_1413.PNG-a35fc3c24ac32a31307a996e2b992132.ctex"]
+source_file="res://assets/nurse/attack/IMG_1428.png"
+dest_files=["res://.godot/imported/IMG_1428.png-01f051eac997ab6d97c526c5bf48b95c.ctex"]
 
 [params]
 
