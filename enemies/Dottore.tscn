@@ -1,0 +1,159 @@
+[gd_scene load_steps=21 format=3 uid="uid://bggyf2f5x274p"]
+
+[ext_resource type="Script" path="res://enemies/Dottore.gd" id="1_s8s06"]
+[ext_resource type="Texture2D" uid="uid://dkxgrrpw3hy1u" path="res://assets/doctor/attack/IMG_1520.png" id="2_7onto"]
+[ext_resource type="PackedScene" uid="uid://dgqnxg0fofywc" path="res://components/AIComponent.tscn" id="2_y4oc6"]
+[ext_resource type="Texture2D" uid="uid://dhdx3tciqe3rq" path="res://assets/doctor/attack/IMG_1521.png" id="3_a1yc1"]
+[ext_resource type="Texture2D" uid="uid://bdcqjbeqv0bgs" path="res://assets/doctor/attack/IMG_1522.png" id="4_yclod"]
+[ext_resource type="Texture2D" uid="uid://beeturrjhnaa5" path="res://assets/doctor/attack/IMG_1523.png" id="5_78til"]
+[ext_resource type="Texture2D" uid="uid://sfmpqtehl5es" path="res://assets/doctor/attack/IMG_1524.png" id="6_kclrp"]
+[ext_resource type="Texture2D" uid="uid://dqtir48l8hovd" path="res://assets/doctor/attack/IMG_1525.png" id="7_thqjk"]
+[ext_resource type="Texture2D" uid="uid://grpsf0h4ouot" path="res://assets/doctor/attack/IMG_1526.png" id="8_hf7qj"]
+[ext_resource type="Texture2D" uid="uid://w2yb7p2y1fx2" path="res://assets/doctor/walk/IMG_1514.png" id="9_p3glu"]
+[ext_resource type="Texture2D" uid="uid://dw4bxfd40ekuc" path="res://assets/doctor/walk/IMG_1515.png" id="10_eiynk"]
+[ext_resource type="Texture2D" uid="uid://cdet8ouxpkwx7" path="res://assets/doctor/walk/IMG_1516.png" id="11_4p413"]
+[ext_resource type="Texture2D" uid="uid://c0kt8nyrk0up3" path="res://assets/doctor/walk/IMG_1517.png" id="12_13xy8"]
+[ext_resource type="Texture2D" uid="uid://ykvridalkc7o" path="res://assets/doctor/walk/IMG_1519.png" id="13_jpimm"]
+[ext_resource type="PackedScene" uid="uid://cbfbchdsgnnw7" path="res://components/HealthComponent.tscn" id="16_ltvpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3v36"]
+radius = 40.0195
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8h5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7onto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a1yc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yclod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_78til")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kclrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_thqjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hf7qj")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_p3glu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eiynk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4p413")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_13xy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jpimm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_4pypo"]
+resource_name = "took_damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qs5c6"]
+_data = {
+"took_damage": SubResource("Animation_4pypo")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_22ids"]
+radius = 91.25
+height = 265.0
+
+[node name="Dottore" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_s8s06")
+attack_range = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.25, 1.29938e-05)
+shape = SubResource("CircleShape2D_l3v36")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -111.75)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_m8h5w")
+animation = &"attack"
+frame = 6
+frame_progress = 0.798214
+offset = Vector2(150, 0)
+
+[node name="AIComponent" parent="." instance=ExtResource("2_y4oc6")]
+is_active = true
+is_ranged = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(-3, -3, 146, -168, 206, -114, 207, -17, 192, 95, 118, 150)
+
+[node name="HealthComponent" parent="." instance=ExtResource("16_ltvpa")]
+maxHp = 30.0
+
+[node name="HpLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -153.0
+offset_right = 20.0
+offset_bottom = -130.0
+text = "100"
+
+[node name="HitboxPolygon" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 0.196078)
+polygon = PackedVector2Array(-1, -1, 148, -171, 148, 149)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qs5c6")
+}
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(15, -106.25)
+shape = SubResource("CapsuleShape2D_22ids")
+
+[connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
+[connection signal="is_dead" from="HealthComponent" to="." method="on_is_dead"]
+[connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
+[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]

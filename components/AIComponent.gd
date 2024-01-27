@@ -1,12 +1,14 @@
 extends Node
 
+var bisturi_scene = preload("res://enemies/Bisturi.tscn")
+
 @export var is_active: bool = false
 @export var character_node: Node2D
 @export var attack_damage: float = 10
 
-var is_attacking: bool = false
+@export var is_ranged: bool = false
 
-var player_position: Vector2 = Vector2(10, 10)
+var is_attacking: bool = false
 
 @onready var sprite = get_parent().get_node("Sprite")
 @onready var hitbox: Area2D = get_parent().get_node("HitBox")
@@ -42,12 +44,20 @@ func on_frame_changed():
 	if sprite.animation != "attack":
 		return
 		
-	if sprite.get_frame() == 8:
-		for body in hitbox.get_overlapping_areas():
-			hit_body(body)
-	
-	if sprite.get_frame() == 5:
-		hitbox_polygon.visible = true
+	if not is_ranged:
+		if sprite.get_frame() == 8:
+			for body in hitbox.get_overlapping_areas():
+				hit_body(body)
+		
+		if sprite.get_frame() == 5:
+			hitbox_polygon.visible = true
+	else:
+		if sprite.get_frame() == 5:
+			var bisturi = bisturi_scene.instantiate()
+			bisturi.attack_damage = attack_damage
+			bisturi.global_position = get_parent().global_position
+			bisturi.target = get_parent().target
+			get_parent().add_sibling(bisturi)
 
 func hit_body(body):
 	if body.get_parent().get_name() != "Player":
