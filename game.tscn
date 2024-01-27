@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=9 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="2_fhk6m"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_lv08r"]
+[ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_lv08r")
@@ -1650,3 +1651,5 @@ theme_override_font_sizes/font_size = 48
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_am0ot")
+[node name="InfermieraSpawn" parent="." groups=["enemies"] instance=ExtResource("5_45xq4")]
+position = Vector2(400, 225)
