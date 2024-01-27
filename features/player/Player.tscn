@@ -21,8 +21,8 @@ curve = SubResource("Curve_sb7ip")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7oo71"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.4
+scale_max = 0.4
 alpha_curve = SubResource("CurveTexture_8trrd")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_maqw4"]
@@ -70,11 +70,11 @@ animations = [{
 modulate = Color(0, 0, 0, 1)
 light_mask = 2
 visibility_layer = 3
+scale = Vector2(0.8, 0.8)
 motion_mode = 1
 script = ExtResource("1_oweex")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-scale = Vector2(0.5, 0.5)
 emitting = false
 amount = 4
 process_material = SubResource("ParticleProcessMaterial_7oo71")

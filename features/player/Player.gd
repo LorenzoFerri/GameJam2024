@@ -30,9 +30,9 @@ func _physics_process(delta):
 	
 		
 	if direction.x > 0:
-		animated_sprite.scale.x = 0.5
+		animated_sprite.scale.x = abs(animated_sprite.scale.x)
 	elif direction.x < 0:
-		animated_sprite.scale.x = -0.5
+		animated_sprite.scale.x = -abs(animated_sprite.scale.x)
 		
 	var frame_index: int = animated_sprite.get_frame()
 	var animation_name: String = animated_sprite.animation
