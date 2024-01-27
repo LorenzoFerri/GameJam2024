@@ -17,5 +17,6 @@ func check_killed_hurt_nurse():
 		SceneManager.goto_scene("res://game.tscn")
 
 func increase_frenzy(_ignored):
+	"""Player tries to increase frenzy but here it doesn't exist"""
 	pass
 

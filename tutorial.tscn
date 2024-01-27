@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ctkyk0hwne6" path="res://assets/map/Tailset ospedale ostaoli.png" id="4_8nfvw"]
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="5_02tm0"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="6_1a5tb"]
-[ext_resource type="Texture2D" uid="uid://dcg1ev128kwmc" path="res://assets/tutorial/controls.png" id="7_i4tj5"]
+[ext_resource type="Texture2D" uid="uid://qw4cm8dh3wl4" path="res://assets/tutorial/controls.png" id="7_i4tj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_ueq31")
@@ -4240,10 +4240,11 @@ target = NodePath(".")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 229.0
-offset_top = 547.0
-offset_right = 805.0
-offset_bottom = 997.0
+offset_left = -58.0
+offset_top = 629.0
+offset_right = 518.0
+offset_bottom = 1079.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_i4tj5")
+stretch_mode = 3
