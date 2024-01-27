@@ -16,7 +16,7 @@ func _on_settings_pressed():
 
 
 func _on_new_game_pressed():
-	SceneManager.goto_scene("res://game.tscn")
+	SceneManager.goto_scene("res://story/intro.tscn")
 
 
 func _on_exit_pressed():
