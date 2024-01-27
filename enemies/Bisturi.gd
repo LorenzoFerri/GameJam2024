@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var movement_speed = 300.0
+@export var movement_speed = 350.0
 var target: Node2D
 var destination: Vector2
 var attack_damage: float
@@ -15,6 +15,8 @@ func _physics_process(delta):
 
 	if abs(global_position.distance_to(destination)) <= 5:
 		queue_free()
+	
+	look_at(destination)
 
 	move_and_slide()
 

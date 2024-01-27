@@ -57,6 +57,8 @@ func on_frame_changed():
 			bisturi.attack_damage = attack_damage
 			bisturi.global_position = get_parent().global_position
 			bisturi.target = get_parent().target
+			#bisturi.rotation_degrees = atan(get_parent().target.global_position.y / get_parent().target.global_position.x)
+			print(bisturi.rotation)
 			get_parent().add_sibling(bisturi)
 
 func hit_body(body):

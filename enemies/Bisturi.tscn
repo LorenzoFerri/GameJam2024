@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3wplohjo6nw3"]
 
 [ext_resource type="Script" path="res://enemies/Bisturi.gd" id="1_2w26t"]
-[ext_resource type="Texture2D" uid="uid://c1uv6ygtqp4wm" path="res://icon.svg" id="1_bvfg1"]
+[ext_resource type="Texture2D" uid="uid://boautcxxd70nn" path="res://assets/doctor/Bisturi.png" id="2_s2cos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xa83"]
-size = Vector2(65, 65)
+size = Vector2(79, 24)
 
 [node name="Bisturi" type="CharacterBody2D"]
 collision_layer = 2
@@ -13,14 +13,14 @@ script = ExtResource("1_2w26t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_bvfg1")
+texture = ExtResource("2_s2cos")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(-0.5, -0.5)
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_5xa83")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
