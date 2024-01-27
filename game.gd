@@ -11,10 +11,8 @@ var frenzy_value: float = 0
 func _ready():
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$Infermiera.set_movement_target(player.global_position)
 	decrease_frenzy(delta / 2)
 
 func increase_frenzy(val: float):

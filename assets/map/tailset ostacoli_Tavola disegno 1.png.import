@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wt6nlx6mn2fa"
-path="res://.godot/imported/IMG_1415.PNG-9406f80a6da38c537a462d5a3e779ca7.ctex"
+uid="uid://bb1q521ndqyc1"
+path="res://.godot/imported/tailset ostacoli_Tavola disegno 1.png-910954c6634f583aaefce279424a5756.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nurse/attack/IMG_1415.PNG"
-dest_files=["res://.godot/imported/IMG_1415.PNG-9406f80a6da38c537a462d5a3e779ca7.ctex"]
+source_file="res://assets/map/tailset ostacoli_Tavola disegno 1.png"
+dest_files=["res://.godot/imported/tailset ostacoli_Tavola disegno 1.png-910954c6634f583aaefce279424a5756.ctex"]
 
 [params]
 

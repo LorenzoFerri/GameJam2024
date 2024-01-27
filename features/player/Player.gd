@@ -30,17 +30,15 @@ func _physics_process(delta):
 	
 		
 	if direction.x > 0:
-		animated_sprite.scale.x = 0.5
-		dash_particle.scale.x = 0.5
+		animated_sprite.scale.x = abs(animated_sprite.scale.x)
 	elif direction.x < 0:
-		animated_sprite.scale.x = -0.5
-		dash_particle.scale.x = -0.5
+		animated_sprite.scale.x = -abs(animated_sprite.scale.x)
 		
 	var frame_index: int = animated_sprite.get_frame()
 	var animation_name: String = animated_sprite.animation
 	var sprite_frames: SpriteFrames = animated_sprite.get_sprite_frames()
 	var current_texture: Texture2D = sprite_frames.get_frame_texture(animation_name, frame_index)
-	if direction.x < 0:
+	if animated_sprite.scale.x < 0:
 		var image = current_texture.get_image()
 		image.flip_x()
 		current_texture = ImageTexture.create_from_image(image)
@@ -50,6 +48,7 @@ func _physics_process(delta):
 	
 	if dash_speed <= 200:
 		dash_particle.emitting = false
+		set_collision_mask_value(2, true)
 		
 	if Input.is_action_just_pressed("dash"):
 		dash()
@@ -63,6 +62,7 @@ func _physics_process(delta):
 func dash():
 	if dash_cooldown.is_stopped():
 		dash_particle.emitting = true
+		set_collision_mask_value(2, false)
 		dash_cooldown.start()
 		dash_speed = 2000
 
@@ -86,6 +86,7 @@ func _on_animated_sprite_2d_frame_changed():
 			direction /= 10
 		if animated_sprite.frame == 3:
 			for body in hurt_box.get_overlapping_bodies():
+				print(body)
 				hit_body(body)
 			smear.visible = true
 			if direction == Vector2.ZERO:
@@ -108,3 +109,7 @@ func hit_body(body):
 
 func set_on_frenzy(val: bool):
 	print("On Frenzy")
+
+
+func _on_health_component_is_dead():
+	get_tree().quit()

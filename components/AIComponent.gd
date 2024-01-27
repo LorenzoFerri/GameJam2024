@@ -10,6 +10,7 @@ var player_position: Vector2 = Vector2(10, 10)
 
 @onready var sprite = get_parent().get_node("Sprite")
 @onready var hitbox: Area2D = get_parent().get_node("Hitbox")
+@onready var hitbox_polygon = get_parent().get_node("HitboxPolygon")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +45,9 @@ func on_frame_changed():
 	if sprite.get_frame() == 8:
 		for body in hitbox.get_overlapping_bodies():
 			hit_body(body)
+	
+	if sprite.get_frame() == 5:
+		hitbox_polygon.visible = true
 
 func hit_body(body):
 	if body.get_name() != "Player":

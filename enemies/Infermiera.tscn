@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://dga6iu5hdvowr"]
 
 [ext_resource type="Script" path="res://enemies/Infermiera.gd" id="1_rwjce"]
-[ext_resource type="Texture2D" uid="uid://dri3spfvc0ybl" path="res://assets/nurse/attack/IMG_1410.PNG" id="2_shiom"]
+[ext_resource type="Texture2D" uid="uid://bhqngpklb8628" path="res://assets/nurse/attack/IMG_1427.png" id="2_b12na"]
 [ext_resource type="PackedScene" uid="uid://dgqnxg0fofywc" path="res://components/AIComponent.tscn" id="2_y4oc6"]
-[ext_resource type="Texture2D" uid="uid://do07w1n1kff43" path="res://assets/nurse/attack/IMG_1411.PNG" id="3_mbnee"]
-[ext_resource type="Texture2D" uid="uid://p08hbbh7tpki" path="res://assets/nurse/attack/IMG_1412.PNG" id="4_fner2"]
-[ext_resource type="Texture2D" uid="uid://cfdbfxniv3t3x" path="res://assets/nurse/attack/IMG_1413.PNG" id="5_sydsb"]
-[ext_resource type="Texture2D" uid="uid://d277onckikd38" path="res://assets/nurse/attack/IMG_1414.PNG" id="6_trixx"]
-[ext_resource type="Texture2D" uid="uid://wt6nlx6mn2fa" path="res://assets/nurse/attack/IMG_1415.PNG" id="7_wv242"]
-[ext_resource type="Texture2D" uid="uid://bhcvi48hdxqab" path="res://assets/nurse/attack/IMG_1416.PNG" id="8_r8obs"]
-[ext_resource type="Texture2D" uid="uid://bv7cdj4xvm63g" path="res://assets/nurse/attack/IMG_1417.png" id="9_76pqb"]
+[ext_resource type="Texture2D" uid="uid://cjpww6187x4hl" path="res://assets/nurse/attack/IMG_1428.png" id="3_umuto"]
+[ext_resource type="Texture2D" uid="uid://bnesbw0lui3a3" path="res://assets/nurse/attack/IMG_1429.png" id="4_pvvp4"]
+[ext_resource type="Texture2D" uid="uid://d1ka50u1b7y34" path="res://assets/nurse/attack/IMG_1430.png" id="5_af4vn"]
+[ext_resource type="Texture2D" uid="uid://2nt0wer1wg6w" path="res://assets/nurse/attack/IMG_1431.png" id="6_fbxkq"]
+[ext_resource type="Texture2D" uid="uid://bssy5gh8iamnm" path="res://assets/nurse/attack/IMG_1432.png" id="7_al5cj"]
+[ext_resource type="Texture2D" uid="uid://bo000wu4kmdp1" path="res://assets/nurse/attack/IMG_1433.png" id="8_5c3qx"]
+[ext_resource type="Texture2D" uid="uid://kc086lit71b6" path="res://assets/nurse/attack/IMG_1434.png" id="9_8v52k"]
 [ext_resource type="Texture2D" uid="uid://brchk0cnj8hgs" path="res://assets/nurse/walk_cycle/IMG_1420.PNG" id="10_rl2yj"]
 [ext_resource type="Texture2D" uid="uid://cv1lmbke0akrj" path="res://assets/nurse/walk_cycle/IMG_1421.PNG" id="11_ndw0e"]
 [ext_resource type="Texture2D" uid="uid://babjv1gbq2yj8" path="res://assets/nurse/walk_cycle/IMG_1422.PNG" id="12_cd62v"]
@@ -24,35 +24,35 @@ radius = 57.0088
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_shiom")
+"texture": ExtResource("2_b12na")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_mbnee")
+"texture": ExtResource("3_umuto")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_fner2")
+"texture": ExtResource("4_pvvp4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_sydsb")
+"texture": ExtResource("5_af4vn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_trixx")
+"texture": ExtResource("6_fbxkq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_wv242")
+"texture": ExtResource("7_al5cj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_r8obs")
+"texture": ExtResource("8_5c3qx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_r8obs")
+"texture": ExtResource("8_5c3qx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_76pqb")
+"texture": ExtResource("9_8v52k")
 }],
 "loop": true,
 "name": &"attack",
-"speed": 8.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -76,6 +76,9 @@ animations = [{
 }]
 
 [node name="Infermiera" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_rwjce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,7 +88,8 @@ shape = SubResource("CircleShape2D_qg3wk")
 position = Vector2(1, 2)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_m8h5w")
-animation = &"walk"
+animation = &"attack"
+frame_progress = 0.275832
 offset = Vector2(150, 0)
 
 [node name="AIComponent" parent="." instance=ExtResource("2_y4oc6")]
@@ -106,6 +110,11 @@ offset_top = -153.0
 offset_right = 20.0
 offset_bottom = -130.0
 text = "100"
+
+[node name="HitboxPolygon" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 0.196078)
+polygon = PackedVector2Array(-1, -1, 148, -171, 148, 149)
 
 [connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="took_damage" from="HealthComponent" to="." method="update_health"]
