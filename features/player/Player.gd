@@ -118,7 +118,7 @@ func set_on_frenzy(val: bool):
 
 
 func _on_health_component_is_dead():
-	get_tree().quit()
+	SceneManager.lose_skill()
 	
 func _on_health_component_took_damage(old_value, new_value):
 	animation_player.play("took_damage")
