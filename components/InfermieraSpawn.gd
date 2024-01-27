@@ -31,5 +31,11 @@ func spawn_enemy():
 	enemy.target = player
 
 func is_finish():
-	return wave_max_number == wave_count
+	var enemies_on_screen = Array()
+	
+	for a in get_tree().get_nodes_in_group("enemies"):
+		if a.name != "Game":
+			enemies_on_screen.append(a)
+
+	return wave_max_number == wave_count && enemies_on_screen.size() == 0
 
