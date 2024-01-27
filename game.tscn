@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=8 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
-[ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="2_fhk6m"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_lv08r"]
 [ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
 
@@ -1639,10 +1638,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 2, 65536, 0, 3, 1, 65536, 2, 65537, 6
 
 [node name="Player" parent="." instance=ExtResource("1_qgqlc")]
 position = Vector2(692, 326)
-
-[node name="Infermiera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_fhk6m")]
-position = Vector2(1461, 710)
-target = NodePath("../Player")
 
 [node name="FrenzyLabel" type="Label" parent="."]
 offset_right = 40.0
