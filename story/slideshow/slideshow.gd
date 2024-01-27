@@ -2,13 +2,16 @@ extends Control
 
 @export var images: Array[Texture]
 @export var texts: Array[String]
+@export var next_scene: String
 
 var current = 0
 var elapsed = 0
 
 func _ready():
 	assert(len(texts) == len(images), "Must have same number of images and texts")
+	var text = texts[current]
 	$SlideImage.texture = images[current]
+	$NarrationText.visible = len(text) > 0
 	$NarrationText.text = texts[current]
 	
 func _process(delta):
@@ -21,7 +24,7 @@ func check_next():
 		if $NarrationText.visible_ratio < 1.0:
 			elapsed = 1000000
 		elif current + 1 >= len(images):
-			SceneManager.goto_scene("res://game.tscn")
+			SceneManager.goto_scene(next_scene)
 		else:
 			current += 1
 			elapsed = 0
