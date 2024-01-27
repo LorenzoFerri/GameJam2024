@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var frenzy_value: float = 70
+@export var frenzy_value: float = 70
 @onready var frenzy_bar = $CanvasLayer/FrenzyBar
 @export var frenzy_threshold = 80
 
