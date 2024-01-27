@@ -9,13 +9,12 @@ var is_attacking: bool = false
 var player_position: Vector2 = Vector2(10, 10)
 
 @onready var sprite = get_parent().get_node("Sprite")
-@onready var hitbox = get_parent().get_node("Hitbox")
+@onready var hitbox: Area2D = get_parent().get_node("Hitbox")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.animation_looped.connect(attack_anim_ended)
 	sprite.frame_changed.connect(on_frame_changed)
-	hitbox.body_entered.connect(on_hitbox_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,11 +42,10 @@ func on_frame_changed():
 		return
 		
 	if sprite.get_frame() == 8:
-		hitbox.monitoring = true
-	else:
-		hitbox.monitoring = false
+		for body in hitbox.get_overlapping_bodies():
+			hit_body(body)
 
-func on_hitbox_body_entered(body):
+func hit_body(body):
 	if body.get_name() != "Player":
 		return
 	var hpComp = body.get_node_or_null("HealthComponent")

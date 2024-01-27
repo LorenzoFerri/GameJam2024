@@ -23,10 +23,6 @@ buses/default_bus_layout=""
 
 SceneManager="*res://SceneManager.gd"
 
-[display]
-
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray()

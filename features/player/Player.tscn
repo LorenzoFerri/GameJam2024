@@ -85,7 +85,6 @@ shape = SubResource("CapsuleShape2D_maqw4")
 [node name="DashCooldown" type="Timer" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
-monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
 polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)
@@ -104,6 +103,15 @@ frame_progress = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("10_5ihta")]
 
+[node name="HpLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -153.0
+offset_right = 20.0
+offset_bottom = -130.0
+text = "100"
+
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
+[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]

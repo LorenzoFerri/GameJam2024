@@ -11,7 +11,9 @@ var dash_speed = 0
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hurt_box := $HurtBox
 @onready var smear := $HurtBox/Smear
+@onready var hp_label := $HpLabel
 var direction = Vector2.ZERO
+var last_direction: Vector2 = Vector2.RIGHT
 
 func _physics_process(delta):
 	if animated_sprite.animation != "attack":
@@ -19,11 +21,12 @@ func _physics_process(delta):
 		var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		direction = Vector2(direction_x,direction_y).normalized()
 	if direction.length():
+		last_direction = direction
 		velocity = direction * speed + direction * dash_speed
+		hurt_box.rotation = direction.angle()
 	else:
 		velocity *= damping
 	
-	hurt_box.rotation = direction.angle()
 		
 	if direction.x > 0:
 		animated_sprite.scale.x = 0.5
@@ -77,16 +80,22 @@ func _on_animated_sprite_2d_frame_changed():
 		if animated_sprite.frame == 1:
 			direction /= 10
 		if animated_sprite.frame == 3:
-			hurt_box.monitoring = true
+			for body in hurt_box.get_overlapping_bodies():
+				hit_body(body)
 			smear.visible = true
 			if direction == Vector2.ZERO:
-				if animated_sprite.scale.x >= 0:
-					direction = Vector2.RIGHT
-				else:
-					direction = Vector2.LEFT
+				direction = last_direction
 			direction = direction.normalized() * 2
 		if animated_sprite.frame == 5:
-			hurt_box.monitoring = false
 			smear.visible = false
 			direction /= 10
 
+func update_health(old_value, new_value):
+	hp_label.text = str(new_value)
+
+func hit_body(body):
+	if body.get_name() == "Player":
+		return
+	var hp_comp = body.get_node_or_null("HealthComponent")
+	if hp_comp != null:
+		hp_comp.take_damage(10)
