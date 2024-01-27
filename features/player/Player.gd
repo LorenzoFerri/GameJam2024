@@ -92,7 +92,6 @@ func _on_animated_sprite_2d_frame_changed():
 			direction /= 10
 		if animated_sprite.frame == 3:
 			for body in hurt_box.get_overlapping_bodies():
-				print(body)
 				hit_body(body)
 			smear.visible = true
 			if direction == Vector2.ZERO:

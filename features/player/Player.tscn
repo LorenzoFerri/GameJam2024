@@ -25,8 +25,8 @@ curve = SubResource("Curve_sb7ip")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7oo71"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.4
+scale_max = 0.4
 alpha_curve = SubResource("CurveTexture_8trrd")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_maqw4"]
@@ -138,7 +138,7 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_oweex")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="DashParticles" type="GPUParticles2D" parent="."]
 amount = 4
 process_material = SubResource("ParticleProcessMaterial_7oo71")
 texture = ExtResource("8_xsa2f")
@@ -150,8 +150,8 @@ shape = SubResource("CapsuleShape2D_maqw4")
 [node name="DashCooldown" type="Timer" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 3
-monitoring = false
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
 polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)

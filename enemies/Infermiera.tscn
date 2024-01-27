@@ -117,8 +117,8 @@ is_active = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
 polygon = PackedVector2Array(-3, -3, 146, -168, 206, -114, 207, -17, 192, 95, 118, 150)
