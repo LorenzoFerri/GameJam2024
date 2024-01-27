@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var dash_cooldown := $DashCooldown
 var dash_speed = 0
 @onready var dash_damping = 0.9
-@onready var dash_particle := $GPUParticles2D
+@onready var dash_particle := $DashParticles
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hurt_box := $HurtBox
 @onready var smear := $HurtBox/Smear
