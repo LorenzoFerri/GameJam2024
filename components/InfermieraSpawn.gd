@@ -30,3 +30,6 @@ func spawn_enemy():
 	var player = get_parent().get_node("/root/Game/Player")
 	print(player.global_position)
 	enemy.target = player
+
+func is_finish():
+	return wave_max_number == wave_count
