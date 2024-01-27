@@ -50,6 +50,7 @@ func _physics_process(delta):
 	
 	if dash_speed <= 200:
 		dash_particle.emitting = false
+		set_collision_mask_value(2, true)
 		
 	if Input.is_action_just_pressed("dash"):
 		dash()
@@ -63,6 +64,7 @@ func _physics_process(delta):
 func dash():
 	if dash_cooldown.is_stopped():
 		dash_particle.emitting = true
+		set_collision_mask_value(2, false)
 		dash_cooldown.start()
 		dash_speed = 2000
 
