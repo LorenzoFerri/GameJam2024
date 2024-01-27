@@ -11,8 +11,8 @@ var dash_speed = 0
 
 
 func _physics_process(delta):
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
+	var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	var direction = Vector2(direction_x,direction_y).normalized()
 	if direction.length():
 		velocity = direction * speed + direction * dash_speed

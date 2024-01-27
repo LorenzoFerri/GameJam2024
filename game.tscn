@@ -2283,6 +2283,8 @@ script = ExtResource("1_xn5e7")
 
 [node name="Player" parent="." instance=ExtResource("1_qgqlc")]
 position = Vector2(692, 326)
+speed = 600.0
+damping = 0.6
 
 [node name="Infermiera" parent="." instance=ExtResource("2_fhk6m")]
 position = Vector2(880, 1027)
