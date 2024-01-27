@@ -11,6 +11,9 @@ var movement_target_position: Vector2 = Vector2(60.0,180.0)
 @onready var sprite = $Sprite
 @onready var AI_component = $AIComponent
 @onready var hit_box = $Hitbox
+@onready var attack_cooldown: Timer = $AttackCooldown
+
+@export var target: Node2D
 
 
 func _ready():
@@ -38,7 +41,12 @@ func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
 		if not AI_component.is_attacking:
 			AI_component.start_attack()
+			attack_cooldown.stop()
+			attack_cooldown.start()
 		return
+	
+	if attack_cooldown.time_left > 0.2:
+		hit_box.look_at(target.global_position)
 	
 	if AI_component.is_attacking:
 		return
@@ -54,7 +62,6 @@ func _physics_process(delta):
 	else:
 		sprite.scale.x = abs(sprite.scale.x) * -1
 		
-	hit_box.look_at(next_path_position)
 	
 	move_and_slide()
 

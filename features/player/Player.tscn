@@ -77,7 +77,6 @@ amount = 4
 process_material = SubResource("ParticleProcessMaterial_7oo71")
 texture = ExtResource("3_01pee")
 speed_scale = 8.0
-trail_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_maqw4")
@@ -109,6 +108,7 @@ offset_top = -153.0
 offset_right = 20.0
 offset_bottom = -130.0
 text = "100"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

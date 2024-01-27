@@ -2284,8 +2284,9 @@ script = ExtResource("1_xn5e7")
 [node name="Player" parent="." instance=ExtResource("1_qgqlc")]
 position = Vector2(692, 326)
 
-[node name="Infermiera" parent="." instance=ExtResource("2_fhk6m")]
+[node name="Infermiera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_fhk6m")]
 position = Vector2(880, 1027)
+target = NodePath("../Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xoga6")
