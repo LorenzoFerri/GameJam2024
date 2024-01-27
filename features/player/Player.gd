@@ -9,8 +9,8 @@ var dash_speed = 0
 @onready var dash_damping = 0.9
 @onready var dash_particle := $GPUParticles2D
 @onready var animated_sprite := $AnimatedSprite2D
-@onready var hurt_box := $AnimatedSprite2D/HurtBox
-@onready var smear := $AnimatedSprite2D/HurtBox/Smear
+@onready var hurt_box := $HurtBox
+@onready var smear := $HurtBox/Smear
 var direction = Vector2.ZERO
 
 func _physics_process(delta):
@@ -22,8 +22,8 @@ func _physics_process(delta):
 		velocity = direction * speed + direction * dash_speed
 	else:
 		velocity *= damping
-		
-
+	
+	hurt_box.rotation = direction.angle()
 		
 	if direction.x > 0:
 		animated_sprite.scale.x = 0.5
@@ -36,6 +36,10 @@ func _physics_process(delta):
 	var animation_name: String = animated_sprite.animation
 	var sprite_frames: SpriteFrames = animated_sprite.get_sprite_frames()
 	var current_texture: Texture2D = sprite_frames.get_frame_texture(animation_name, frame_index)
+	if direction.x < 0:
+		var image = current_texture.get_image()
+		image.flip_x()
+		current_texture = ImageTexture.create_from_image(image)
 	dash_particle.texture = current_texture
 		
 	dash_speed *= dash_damping
@@ -49,6 +53,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack":
 		attack()
 	move_and_slide()
+
 	
 
 func dash():
