@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dri3spfvc0ybl"
-path="res://.godot/imported/IMG_1410.PNG-449660814de82a998fc69337f512354f.ctex"
+uid="uid://diu1h3raqys7q"
+path="res://.godot/imported/IMG_1408.PNG-e20a8dee7e9de3918e84b0c2cfad93eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nurse/attack/IMG_1410.PNG"
-dest_files=["res://.godot/imported/IMG_1410.PNG-449660814de82a998fc69337f512354f.ctex"]
+source_file="res://assets/nurse/walk_cycle/IMG_1408.PNG"
+dest_files=["res://.godot/imported/IMG_1408.PNG-e20a8dee7e9de3918e84b0c2cfad93eb.ctex"]
 
 [params]
 

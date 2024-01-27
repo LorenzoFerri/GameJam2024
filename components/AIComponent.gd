@@ -1,19 +1,21 @@
 extends Node
 
 @export var is_active: bool = false
-@export var attack_range: float = 10.0
-@export var movement_speed: float = 500.0
-@export var attack_speed: float = 1.0
 @export var character_node: Node2D
+@export var attack_damage: float = 10
 
 var is_attacking: bool = false
-var attack_windup: float = 0.0
 
 var player_position: Vector2 = Vector2(10, 10)
 
+@onready var sprite = get_parent().get_node("Sprite")
+@onready var hitbox = get_parent().get_node("Hitbox")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sprite.animation_looped.connect(attack_anim_ended)
+	sprite.frame_changed.connect(on_frame_changed)
+	hitbox.body_entered.connect(on_hitbox_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,4 +28,29 @@ func _process(delta):
 		return
 	
 	
-	
+func start_attack():
+	is_attacking = true
+	sprite.play("attack")
+
+func attack_anim_ended():
+	if not is_attacking:
+		return
+		
+	is_attacking = false
+
+func on_frame_changed():
+	if sprite.animation != "attack":
+		return
+		
+	if sprite.get_frame() == 8:
+		hitbox.monitoring = true
+	else:
+		hitbox.monitoring = false
+
+func on_hitbox_body_entered(body):
+	if body.get_name() != "Player":
+		return
+	var hpComp = body.get_node_or_null("HealthComponent")
+	if hpComp != null:
+		hpComp.take_damage(attack_damage)
+		

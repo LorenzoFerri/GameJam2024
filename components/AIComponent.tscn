@@ -4,5 +4,3 @@
 
 [node name="AIComponent" type="Node"]
 script = ExtResource("1_p26ho")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]

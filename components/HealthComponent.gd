@@ -4,8 +4,8 @@ signal took_damage(old_value, new_value)
 signal healed_damage(old_value, new_value)
 signal is_dead
 
-var hp: int = 100
-@export var maxHp: int = 100
+var hp: float = 100.0
+@export var maxHp: float = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func take_damage(amount: int):
+func take_damage(amount: float):
 	if amount <= 0:
 		return
 	
@@ -28,7 +28,7 @@ func take_damage(amount: int):
 	
 	took_damage.emit(old_hp, hp)
 
-func heal_damage(amount: int):
+func heal_damage(amount: float):
 	if amount <= 0:
 		return
 	
