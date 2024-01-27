@@ -6,6 +6,15 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
+func win():
+	goto_scene("res://story/win.tscn")
+	
+func lose_death():
+	goto_scene("res://story/lose_death.tscn")
+	
+func lose_cringe():
+	goto_scene("res://story/lose_cringe.tscn")
+	
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
