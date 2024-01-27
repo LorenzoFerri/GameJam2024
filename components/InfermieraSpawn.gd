@@ -8,14 +8,14 @@ var enemy_scene = preload("res://enemies/Infermiera.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 
 var wave_count: int = 0
+@export var wave_started: bool = false
 
 func _ready():
 	spawn_timer.wait_time = spawn_timer_timeout
 
 func _on_spawn_timer_timeout():
 	var enemies_on_screen = get_parent().get_tree().get_nodes_in_group("enemies").size()
-	print(enemies_on_screen)
-	if wave_count < wave_max_number && enemies_on_screen < displayable_enemies:
+	if wave_started && wave_count < wave_max_number && enemies_on_screen < displayable_enemies:
 		spawn_enemy()
 		wave_count += 1
 		
@@ -33,3 +33,6 @@ func spawn_enemy():
 
 func is_finish():
 	return wave_max_number == wave_count
+	
+func start_wave():
+	wave_started = true
