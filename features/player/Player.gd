@@ -39,6 +39,10 @@ func _physics_process(delta):
 	var animation_name: String = animated_sprite.animation
 	var sprite_frames: SpriteFrames = animated_sprite.get_sprite_frames()
 	var current_texture: Texture2D = sprite_frames.get_frame_texture(animation_name, frame_index)
+	if direction.x < 0:
+		var image = current_texture.get_image()
+		image.flip_x()
+		current_texture = ImageTexture.create_from_image(image)
 	dash_particle.texture = current_texture
 		
 	dash_speed *= dash_damping
