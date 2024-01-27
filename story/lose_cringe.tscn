@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct0xvedq7k536"]
+
+[ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_md3vv"]
+[ext_resource type="Texture2D" uid="uid://dkixxibop2132" path="res://assets/end/lose_cringe.png" id="2_elgvo"]
+
+[node name="LoseCringe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slideshow" parent="." instance=ExtResource("1_md3vv")]
+layout_mode = 1
+images = Array[Texture]([ExtResource("2_elgvo")])
+texts = Array[String]([""])
+next_scene = "res://main_menu.tscn"
