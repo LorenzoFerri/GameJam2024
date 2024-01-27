@@ -2,15 +2,15 @@ extends Control
 
 var slides = [
 	Slide.new(
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mollis et purus sed rhoncus. Pellentesque varius aliquet sagittis. Integer nec semper arcu, eget viverra nibh. Mauris eu urna sapien. Donec in urna lectus. Duis vehicula ac lorem a auctor. Praesent scelerisque tempus massa id sodales.",
+		"Il clown prova a far ridere il bambino malato, ma il bambino non sembra divertito.",
 		preload("res://assets/intro/s1.png")
 	),
 	Slide.new(
-		"Vestibulum placerat enim non est eleifend laoreet. Suspendisse pulvinar quam ut mi gravida, luctus tempor mi faucibus. Aliquam turpis nulla, volutpat ut ante vel, viverra viverra ligula. Nulla ut blandit risus. Aenean gravida imperdiet libero, vitae consequat erat lacinia id. Aenean iaculis nec est vel molestie.",
+		"Un'infermiera entra e inciampa cadendo di faccia.",
 		preload("res://assets/intro/s2.png")
 	),
 	Slide.new(
-		"Morbi pretium massa sit amet ligula malesuada, eget euismod purus hendrerit. Quisque tincidunt lobortis lorem, ac tempus leo pharetra et. Suspendisse a quam non ipsum iaculis commodo. Donec cursus vel nulla sed dictum. Sed eros est, ultrices in lectus id, venenatis molestie nibh.",
+		"Il bambino scoppia a ridere. Il clown capisce che per divertire il bambino serve la violenza.",
 		preload("res://assets/intro/s3.png")
 	),
 ]
