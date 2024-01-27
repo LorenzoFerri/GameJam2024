@@ -14,6 +14,7 @@ var dash_speed = 0
 @onready var hp_bar := $CanvasLayer/HealtBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
+@onready var frenzy_particles := $FrenzyParticles
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 
@@ -113,9 +114,7 @@ func hit_body(body):
 		game.increase_frenzy(4)
 
 func set_on_frenzy(val: bool):
-	pass
-	#print("On Frenzy")
-
+	frenzy_particles.visible = val
 
 func _on_health_component_is_dead():
 	SceneManager.lose_skill()
