@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckl7s1ye560hh"
-path="res://.godot/imported/s2.png-cd47741bd4d6a0f28797100d937dd43f.ctex"
+uid="uid://bod1ainq3e85t"
+path="res://.godot/imported/lose_skill.png-d8bb5e7989eccb8d3def255c9e168f1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/intro/s2.png"
-dest_files=["res://.godot/imported/s2.png-cd47741bd4d6a0f28797100d937dd43f.ctex"]
+source_file="res://assets/end/lose_skill.png"
+dest_files=["res://.godot/imported/lose_skill.png-d8bb5e7989eccb8d3def255c9e168f1b.ctex"]
 
 [params]
 

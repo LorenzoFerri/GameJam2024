@@ -36,3 +36,5 @@ func is_finish():
 	
 func start_wave():
 	wave_started = true
+	spawn_enemy()
+	spawn_timer.start()
