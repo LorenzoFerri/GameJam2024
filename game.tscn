@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="2_fhk6m"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_lv08r"]
-[ext_resource type="PackedScene" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
+[ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="5_45xq4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_lv08r")
