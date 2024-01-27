@@ -28,7 +28,7 @@ func increase_frenzy(val: float):
 func decrease_frenzy(val: float):
 	frenzy_value -= val
 	if frenzy_value <= 0:
-		get_tree().quit()
+		SceneManager.lose_cringe()
 	
 	frenzy_label.text = str(ceil(frenzy_value))
 	
@@ -36,4 +36,4 @@ func decrease_frenzy(val: float):
 
 func win():
 	if enemySpawn.is_finish():
-		get_tree().quit()
+		SceneManager.win()

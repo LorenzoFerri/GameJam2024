@@ -9,8 +9,8 @@ func _ready():
 func win():
 	goto_scene("res://story/win.tscn")
 	
-func lose_death():
-	goto_scene("res://story/lose_death.tscn")
+func lose_skill():
+	goto_scene("res://story/lose_skill.tscn")
 	
 func lose_cringe():
 	goto_scene("res://story/lose_cringe.tscn")
