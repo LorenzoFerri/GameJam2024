@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qw4cm8dh3wl4"
-path="res://.godot/imported/controls.png-16305c56acc44f7121e41f361b35b8ac.ctex"
+uid="uid://hebt23hn2611"
+path="res://.godot/imported/button-x.png-ccc1c43a7c659c0614bd3118eb1ad12a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/controls.png"
-dest_files=["res://.godot/imported/controls.png-16305c56acc44f7121e41f361b35b8ac.ctex"]
+source_file="res://assets/intro/button-x.png"
+dest_files=["res://.godot/imported/button-x.png-ccc1c43a7c659c0614bd3118eb1ad12a.ctex"]
 
 [params]
 

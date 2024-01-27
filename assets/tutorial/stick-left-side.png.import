@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qw4cm8dh3wl4"
-path="res://.godot/imported/controls.png-16305c56acc44f7121e41f361b35b8ac.ctex"
+uid="uid://b6pc21yciat3f"
+path="res://.godot/imported/stick-left-side.png-6ebe84fac1b5688faa0eeb6b9e09b3c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/controls.png"
-dest_files=["res://.godot/imported/controls.png-16305c56acc44f7121e41f361b35b8ac.ctex"]
+source_file="res://assets/tutorial/stick-left-side.png"
+dest_files=["res://.godot/imported/stick-left-side.png-6ebe84fac1b5688faa0eeb6b9e09b3c8.ctex"]
 
 [params]
 
