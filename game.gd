@@ -1,6 +1,12 @@
 extends Node2D
 
 
+var frenzy_value: float = 0
+@onready var frenzy_label = $FrenzyLabel
+@export var frenzy_threshold = 50
+
+@onready var player = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -8,4 +14,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$Infermiera.set_movement_target($Player.global_position)
+	$Infermiera.set_movement_target(player.global_position)
+	decrease_frenzy(delta / 2)
+
+func increase_frenzy(val: float):
+	frenzy_value += val
+	if frenzy_value > 100:
+		frenzy_value = 100
+	
+	frenzy_label.text = str(ceil(frenzy_value))
+	
+	player.set_on_frenzy(frenzy_value > frenzy_threshold)
+	
+	
+
+func decrease_frenzy(val: float):
+	frenzy_value -= val
+	if frenzy_value < 0:
+		frenzy_value = 0
+	
+	frenzy_label.text = str(ceil(frenzy_value))
+	
+	player.set_on_frenzy(frenzy_value > frenzy_threshold)

@@ -12,6 +12,7 @@ var dash_speed = 0
 @onready var hurt_box := $HurtBox
 @onready var smear := $HurtBox/Smear
 @onready var hp_label := $HpLabel
+@onready var game := get_parent()
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 
@@ -103,3 +104,7 @@ func hit_body(body):
 	var hp_comp = body.get_node_or_null("HealthComponent")
 	if hp_comp != null:
 		hp_comp.take_damage(10)
+		game.increase_frenzy(4)
+
+func set_on_frenzy(val: bool):
+	print("On Frenzy")

@@ -51,4 +51,5 @@ func hit_body(body):
 	var hpComp = body.get_node_or_null("HealthComponent")
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
+		body.get_parent().increase_frenzy(8)
 		

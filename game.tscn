@@ -2295,3 +2295,8 @@ layer_0/tile_data = PackedInt32Array(0, 655360, 0, 1, 655360, 0, 2, 655360, 0, 3
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-5, -5)
 navigation_polygon = SubResource("NavigationPolygon_wdqwk")
+
+[node name="FrenzyLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48

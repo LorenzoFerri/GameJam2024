@@ -10,6 +10,7 @@ var movement_target_position: Vector2 = Vector2(60.0,180.0)
 @onready var hp_label = $HpLabel
 @onready var sprite = $Sprite
 @onready var AI_component = $AIComponent
+@onready var hit_box = $Hitbox
 
 
 func _ready():
@@ -52,6 +53,8 @@ func _physics_process(delta):
 		sprite.scale.x = abs(sprite.scale.x)
 	else:
 		sprite.scale.x = abs(sprite.scale.x) * -1
+		
+	hit_box.look_at(next_path_position)
 	
 	move_and_slide()
 
