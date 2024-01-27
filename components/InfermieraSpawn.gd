@@ -1,8 +1,7 @@
 extends Node2D
 
-@export var path_length: int = 50
-@export var wave_number: int = 5
-@export var spawn_timer_timeout: int = 2
+@export var wave_number: int = 1
+@export var spawn_timer_timeout: int = 5
 var enemy_scene = preload("res://enemies/Infermiera.tscn")
 
 @onready var spawn_timer: Timer = $SpawnTimer
@@ -24,8 +23,6 @@ func spawn_enemy():
 	
 	add_sibling(enemy)
 	
-	var direction_x = enemy.global_position.x + path_length * cos(rotation)
-	var direction_y = enemy.global_position.y + path_length * sin(rotation)
 	var player = get_parent().get_node("/root/Game/Player")
 	print(player.global_position)
 	enemy.target = player
