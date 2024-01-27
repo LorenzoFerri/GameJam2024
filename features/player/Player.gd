@@ -12,6 +12,7 @@ var dash_speed = 0
 @onready var hurt_box := $HurtBox
 @onready var smear := $HurtBox/Smear
 @onready var hp_label := $HpLabel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
@@ -119,3 +120,6 @@ func set_on_frenzy(val: bool):
 
 func _on_health_component_is_dead():
 	get_tree().quit()
+	
+func _on_health_component_took_damage(old_value, new_value):
+	animation_player.play("took_damage")
