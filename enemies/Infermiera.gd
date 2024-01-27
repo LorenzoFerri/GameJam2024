@@ -41,15 +41,13 @@ func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
 		if not AI_component.is_attacking:
 			AI_component.start_attack()
-			attack_cooldown.stop()
-			attack_cooldown.start()
+			hit_box.look_at(target.global_position)
 		return
-	
-	if attack_cooldown.time_left > 0.2:
-		hit_box.look_at(target.global_position)
 	
 	if AI_component.is_attacking:
 		return
+		
+	hit_box.look_at(target.global_position)
 
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()

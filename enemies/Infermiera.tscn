@@ -76,8 +76,6 @@ animations = [{
 }]
 
 [node name="Infermiera" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_rwjce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -108,10 +106,6 @@ offset_top = -153.0
 offset_right = 20.0
 offset_bottom = -130.0
 text = "100"
-
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
 
 [connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="took_damage" from="HealthComponent" to="." method="update_health"]
