@@ -11,7 +11,6 @@ var frenzy_value: float = 0
 func _ready():
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	decrease_frenzy(delta / 2)
