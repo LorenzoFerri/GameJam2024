@@ -21,6 +21,10 @@ func _physics_process(delta):
 		var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		direction = Vector2(direction_x,direction_y).normalized()
+		if direction.length() > 0:
+			animated_sprite.play("walk")
+		else:
+			animated_sprite.play("idle")
 	if direction.length():
 		last_direction = direction
 		velocity = direction * speed + direction * dash_speed
@@ -28,10 +32,7 @@ func _physics_process(delta):
 	else:
 		velocity *= damping
 	
-	if direction.length() > 0:
-		animated_sprite.play("walk")
-	else:
-		animated_sprite.play("idle")
+	
 		
 	if direction.x > 0:
 		animated_sprite.scale.x = abs(animated_sprite.scale.x)
