@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8e4v6f5px6rd"]
+[gd_scene load_steps=19 format=3 uid="uid://8e4v6f5px6rd"]
 
 [ext_resource type="Script" path="res://features/player/Player.gd" id="1_oweex"]
 [ext_resource type="Texture2D" uid="uid://bx0qt1c4ujd73" path="res://assets/Player/attack1.png" id="3_lw1dv"]
@@ -14,42 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://do8ql8dvf1yi2" path="res://assets/Player/walk/IMG_1445.png" id="12_ccam8"]
 [ext_resource type="Texture2D" uid="uid://bkcyshu3gerxn" path="res://assets/Player/walk/IMG_1446.png" id="13_hok7f"]
 
-[sub_resource type="Curve" id="Curve_53ngv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.9375, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_fn8jx"]
-curve = SubResource("Curve_53ngv")
-
-[sub_resource type="Gradient" id="Gradient_ld14b"]
-colors = PackedColorArray(0.894118, 0, 0, 1, 1, 1, 0.0313726, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tbmkn"]
-gradient = SubResource("Gradient_ld14b")
-
-[sub_resource type="Curve" id="Curve_68hlh"]
-_data = [Vector2(0.532609, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_y8oxg"]
-curve = SubResource("Curve_68hlh")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_58xlx"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 100.0
-angle_min = -47.8
-angle_max = 68.2
-gravity = Vector3(0, -98, 0)
-scale_min = 5.0
-scale_max = 40.0
-scale_curve = SubResource("CurveTexture_y8oxg")
-color_ramp = SubResource("GradientTexture1D_tbmkn")
-alpha_curve = SubResource("CurveTexture_fn8jx")
-turbulence_enabled = true
-turbulence_noise_strength = 11.76
-turbulence_noise_scale = 1.287
-
 [sub_resource type="Curve" id="Curve_sb7ip"]
 _data = [Vector2(0, 0.600658), 0.0, -0.600658, 0, 1, Vector2(1, 0), -0.600658, 0.0, 1, 0]
 point_count = 2
@@ -60,8 +24,8 @@ curve = SubResource("Curve_sb7ip")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7oo71"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-scale_min = 0.4
-scale_max = 0.4
+scale_min = 0.5
+scale_max = 0.5
 alpha_curve = SubResource("CurveTexture_8trrd")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_maqw4"]
@@ -137,15 +101,7 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_oweex")
 
-[node name="FrenzyParticles" type="GPUParticles2D" parent="."]
-scale = Vector2(0.999999, 0.999999)
-amount = 64
-process_material = SubResource("ParticleProcessMaterial_58xlx")
-lifetime = 2.0
-speed_scale = 4.0
-
-[node name="DashParticles" type="GPUParticles2D" parent="."]
-emitting = false
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 4
 process_material = SubResource("ParticleProcessMaterial_7oo71")
 texture = ExtResource("8_xsa2f")
@@ -157,8 +113,7 @@ shape = SubResource("CapsuleShape2D_maqw4")
 [node name="DashCooldown" type="Timer" parent="."]
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
 polygon = PackedVector2Array(52, -136, 99, -47, 101, 35, 38, 106, 150, 40, 155, -50)

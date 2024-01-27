@@ -113,7 +113,8 @@ func hit_body(body):
 		game.increase_frenzy(4)
 
 func set_on_frenzy(val: bool):
-	print("On Frenzy")
+	pass
+	#print("On Frenzy")
 
 
 func _on_health_component_is_dead():

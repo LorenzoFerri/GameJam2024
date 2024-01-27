@@ -6,6 +6,7 @@ var frenzy_value: float = 0
 @export var frenzy_threshold = 50
 
 @onready var player = $Player
+@onready var enemySpawn = $InfermieraSpawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +24,6 @@ func increase_frenzy(val: float):
 	frenzy_label.text = str(ceil(frenzy_value))
 	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
-	
-	
 
 func decrease_frenzy(val: float):
 	frenzy_value -= val
@@ -34,3 +33,7 @@ func decrease_frenzy(val: float):
 	frenzy_label.text = str(ceil(frenzy_value))
 	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
+
+func win():
+	if enemySpawn.is_finish():
+		print("WOOOO")
