@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=9 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="2_fhk6m"]
 [ext_resource type="Texture2D" uid="uid://x7n2dk41d87b" path="res://assets/Tile_foresta.png" id="2_o4g1u"]
+[ext_resource type="PackedScene" uid="uid://ciogvgsqxbkrj" path="res://components/SpawnComponent.tscn" id="5_snh8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ksvp"]
 texture = ExtResource("2_o4g1u")
@@ -2295,3 +2296,7 @@ layer_0/tile_data = PackedInt32Array(0, 655360, 0, 1, 655360, 0, 2, 655360, 0, 3
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-5, -5)
 navigation_polygon = SubResource("NavigationPolygon_wdqwk")
+
+[node name="SpawnComponent" parent="." instance=ExtResource("5_snh8k")]
+position = Vector2(538, 124)
+rotation = -1.5708

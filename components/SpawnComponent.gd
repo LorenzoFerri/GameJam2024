@@ -1,14 +1,19 @@
 extends Node2D
 
 var enemy
+var corner
 
 func _init():
-	# Spawna nemico
-	# Muove nemico di due tile
-	# Position property
-	var enemy = preload("res://enemies/Infermiera.tscn").instance()
+	enemy = preload("res://enemies/Infermiera.tscn").instance()
 	get_parent().add_child(enemy)
+	corner = rotation_degrees
 	
 func _process(delta):
-	enemy.position.x += enemy.speed * delta
-	enemy.position.y += enemy.speed * delta
+	var direction_x = 1 * cos(corner * PI / 200)
+	var direction_y = 1 * sin(corner * PI / 200)
+	
+	var direction = Vector2(direction_x, direction_y)
+	
+	enemy.velocity = direction * enemy.movement_speed
+	
+	enemy.move_and_slide()
