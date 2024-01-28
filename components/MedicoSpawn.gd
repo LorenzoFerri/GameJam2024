@@ -11,6 +11,7 @@ var wave_count: int = 0
 
 func _ready():
 	spawn_timer.wait_time = spawn_timer_timeout
+	spawn_timer.start()
 
 func _on_spawn_timer_timeout():
 	if wave_count < wave_max_number && get_enemy_on_screen() < displayable_enemies:
