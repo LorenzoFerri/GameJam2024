@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://m533idel4je8"]
+[gd_scene load_steps=3 format=3 uid="uid://m533idel4je8"]
 
 [ext_resource type="Script" path="res://components/SpawnerManager.gd" id="1_bfumt"]
+[ext_resource type="Texture2D" uid="uid://dnny2vt1gf7rc" path="res://assets/child/Noia bambino/IMG_1509.png" id="2_6hkvf"]
 
 [node name="SpawnerManager" type="Node"]
 script = ExtResource("1_bfumt")
@@ -11,5 +12,20 @@ one_shot = true
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(100, 0)
+transform = Transform2D(1, 0, 0, 1, 100, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 676.0
+offset_top = 259.0
+offset_right = 1188.0
+offset_bottom = 771.0
+texture = ExtResource("2_6hkvf")
+
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]

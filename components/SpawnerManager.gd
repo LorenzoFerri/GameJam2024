@@ -2,6 +2,8 @@ extends Node
 
 @onready var wave_timer = $WaveTimer
 @onready var spawn_timer = $SpawnTimer
+@onready var text_timer = $TextTimer
+@onready var text = $CanvasLayer/TextureRect
 
 @export var enemy_on_waves: Array[String]
 @export var max_enemy_on_waves: Array[int]
@@ -15,6 +17,7 @@ var count_wave_enemies: int = 0
 var spawners: Array
 
 func _ready():
+	text.hide()
 	wave_timer.wait_time = wave_time_out
 	spawn_timer.wait_time = 1
 	spawners = get_parent().get_tree().get_nodes_in_group("spawn")
@@ -42,10 +45,12 @@ func _on_spawn_timer_timeout():
 	spawn_enemy()
 
 func next_wave():
+	text.show()
 	spawn_timer.stop()
 	wave_timer.stop()
 	wave_timer.start()
 	wave_paused.emit(true)
+	text_timer.start()
 
 func _on_wave_timer_timeout():
 	wave_timer.stop()
@@ -63,3 +68,7 @@ func is_finish():
 			return true
 	else:
 		return false
+
+func _on_text_timer_timeout():
+	text_timer.stop()
+	text.hide()
