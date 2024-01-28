@@ -67,3 +67,10 @@ func decrease_frenzy(val: float):
 func win():
 	if spawner_manager.is_finish():
 		SceneManager.win()
+
+
+func _on_spawner_manager_wave_paused(is_paused: bool):
+	if is_paused:
+		player.heal()
+	else:
+		player.stop_heal()

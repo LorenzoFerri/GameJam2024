@@ -8,6 +8,8 @@ extends Node
 @export var wave_time_out: int = 6
 @export var spawn_time_out: int = 5
 
+signal wave_paused(is_paused: bool)
+
 var count_wave: int = 0
 var count_wave_enemies: int = 0
 var spawners: Array
@@ -36,12 +38,14 @@ func get_enemies_on_screen():
 		return enemies_on_screen.size()
 
 func _on_spawn_timer_timeout():
+	wave_paused.emit(false)
 	spawn_enemy()
 
 func next_wave():
 	spawn_timer.stop()
 	wave_timer.stop()
 	wave_timer.start()
+	wave_paused.emit(true)
 
 func _on_wave_timer_timeout():
 	wave_timer.stop()

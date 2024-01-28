@@ -22,6 +22,7 @@ var dash_speed = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
 @onready var frenzy_particles := $FrenzyParticles
+@onready var health_component := $HealthComponent
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
 
@@ -29,6 +30,11 @@ var last_direction: Vector2 = Vector2.RIGHT
 var doggo_cd_timer = 0
 var is_on_frenzy = false
 
+var is_healing: bool = false
+
+func _process(delta):
+	if is_healing:
+		health_component.heal_damage(delta * 6)
 
 func _physics_process(delta):
 	if animated_sprite.animation != "attack":
@@ -81,9 +87,8 @@ func _physics_process(delta):
 		attack()
 	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack":
 		launch_doggo()
-	move_and_slide()
-
 	
+	move_and_slide()
 
 func dash():
 	if dash_cooldown.is_stopped():
@@ -171,3 +176,9 @@ func launch_doggo():
 		doggo.direction = last_direction.normalized()
 	
 	add_sibling(doggo)
+
+func heal():
+	is_healing = true
+	
+func stop_heal():
+	is_healing = false
