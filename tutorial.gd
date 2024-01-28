@@ -16,6 +16,7 @@ func _physics_process(delta):
 
 func check_killed_hurt_nurse():
 	if hurt_nurse == null:
+		SceneManager.current_player_pos = player.global_position
 		SceneManager.goto_scene("res://game.tscn")
 
 func increase_frenzy(_ignored):
