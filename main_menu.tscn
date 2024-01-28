@@ -111,6 +111,7 @@ texture = ExtResource("5_0xtmr")
 
 [node name="CreditsArrow" type="TextureRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 636.0
 offset_top = 507.0
 offset_right = 700.0
@@ -119,6 +120,7 @@ texture = ExtResource("5_0xtmr")
 
 [node name="ExitArrow" type="TextureRect" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 635.0
 offset_top = 651.0
 offset_right = 699.0
