@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if game_state.frenzy_value == null:
 		animated_sprite.play("idle")		
-	if game_state.frenzy_value <= 20:
+	elif game_state.frenzy_value <= 20:
 		animated_sprite.play("sleepy")
 	elif 20 < game_state.frenzy_value and game_state.frenzy_value < 80:
 		animated_sprite.play("laughing")

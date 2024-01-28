@@ -16,4 +16,4 @@ grow_vertical = 2
 [node name="Slideshow" parent="." instance=ExtResource("1_4t4wl")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_82t4n"), ExtResource("3_g4pwk"), ExtResource("4_te1m4")])
-next_scene = "res://game.tscn"
+next_scene = "res://tutorial.tscn"
