@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var attack_range = 500.0
 @export var duration_seconds = 1.5
 var direction: Vector2
-var attack_damage: float = 10.0
+var attack_damage: float = 15.0
 var can_move: bool = true
 @onready var sprite := $Sprite2D
 
@@ -44,7 +44,7 @@ func hit_area(area):
 	var hpComp = area.get_parent().get_node_or_null("HealthComponent")
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
-		area.get_parent().get_parent().increase_frenzy(6)
+		get_parent().increase_frenzy(6)
 		$GoingDoggoSound.stop()
 		$DogExplosion.play()
 		queue_free()
