@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_on_new_game_focus_entered()
 	$"VBoxContainer/New Game".grab_focus()
 
 
@@ -15,7 +16,7 @@ func _input(event):
 		$ColorRect.visible = false
 		
 	if event is InputEventKey and event.pressed:
-		if event.scancode != KEY_ENTER:
+		if event.keycode != KEY_ENTER:
 			$ColorRect.visible = false
 
 func _on_settings_pressed():
@@ -29,3 +30,27 @@ func _on_new_game_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_new_game_focus_entered():
+	$NewGameArrow.visible = true
+
+
+func _on_new_game_focus_exited():
+	$NewGameArrow.visible = false
+
+
+func _on_credits_focus_entered():
+	$CreditsArrow.visible = true
+
+
+func _on_credits_focus_exited():
+	$CreditsArrow.visible = false
+
+
+func _on_exit_focus_entered():
+	$ExitArrow.visible = true
+
+
+func _on_exit_focus_exited():
+	$ExitArrow.visible = false

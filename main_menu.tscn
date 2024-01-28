@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bubauy1bm0yw2"]
+[gd_scene load_steps=6 format=3 uid="uid://bubauy1bm0yw2"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
 [ext_resource type="Texture2D" uid="uid://dtgggl8fmj70x" path="res://assets/buttons/new game.png" id="2_r52q5"]
 [ext_resource type="Texture2D" uid="uid://c5o2c3dnf2srv" path="res://assets/buttons/credits.png" id="3_mxlv8"]
 [ext_resource type="Texture2D" uid="uid://c1vwcbc5sk84v" path="res://assets/buttons/exit.png" id="4_xdq6s"]
+[ext_resource type="Texture2D" uid="uid://yw2njrkjeypd" path="res://assets/buttons/arrow.png" id="5_0xtmr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -99,6 +100,37 @@ Giuseppe Sambrotta
 and all the team
 [/center]"
 
+[node name="NewGameArrow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 637.0
+offset_top = 359.0
+offset_right = 701.0
+offset_bottom = 423.0
+texture = ExtResource("5_0xtmr")
+
+[node name="CreditsArrow" type="TextureRect" parent="."]
+visible = false
+offset_left = 636.0
+offset_top = 507.0
+offset_right = 700.0
+offset_bottom = 571.0
+texture = ExtResource("5_0xtmr")
+
+[node name="ExitArrow" type="TextureRect" parent="."]
+visible = false
+offset_left = 635.0
+offset_top = 651.0
+offset_right = 699.0
+offset_bottom = 715.0
+texture = ExtResource("5_0xtmr")
+
+[connection signal="focus_entered" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Credits" to="." method="_on_credits_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Credits" to="." method="_on_credits_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Exit" to="." method="_on_exit_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
