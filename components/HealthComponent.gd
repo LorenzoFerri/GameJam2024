@@ -35,4 +35,7 @@ func heal_damage(amount: float):
 	var old_hp = hp
 	hp += amount
 	
+	if hp > maxHp:
+		hp = maxHp
+	
 	healed_damage.emit(old_hp, hp)
