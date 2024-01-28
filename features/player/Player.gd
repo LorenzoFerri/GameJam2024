@@ -25,6 +25,7 @@ var dash_speed = 0
 @onready var health_component := $HealthComponent
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
+var saved_doggo_dir = Vector2.ZERO
 
 @export var doggo_cooldown := 1.0
 var doggo_cd_timer = 0
@@ -91,6 +92,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func prepare_doggo():
+	var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	saved_doggo_dir = Vector2(direction_x, direction_y).normalized()
+	if saved_doggo_dir.length() == 0:
+		saved_doggo_dir = last_direction.normalized()
 	animated_sprite.play("prepare_doggo")
 
 func dash():
@@ -182,11 +188,7 @@ func launch_doggo():
 	doggo.global_position = global_position
 	doggo.global_position.y += 100
 	
-	var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	doggo.direction = Vector2(direction_x, direction_y).normalized()
-	if doggo.direction.length() == 0:
-		doggo.direction = last_direction.normalized()
+	doggo.direction = saved_doggo_dir
 	
 	add_sibling(doggo)
 
