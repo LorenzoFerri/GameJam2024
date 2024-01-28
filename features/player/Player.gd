@@ -16,6 +16,7 @@ var dash_speed = 0
 @onready var dash_particle := $DashParticles
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hit_box := $HitBox
+@onready var hurt_box := $HurtBox
 @onready var smear := $HitBox/Smear
 @onready var hp_bar := $CanvasLayer/HealthBar
 @onready var faccia_clown := $CanvasLayer/FacciaClown
@@ -59,8 +60,10 @@ func _physics_process(delta):
 		
 	if direction.x > 0:
 		animated_sprite.scale.x = abs(animated_sprite.scale.x)
+		hurt_box.position.x = 0
 	elif direction.x < 0:
 		animated_sprite.scale.x = -abs(animated_sprite.scale.x)
+		hurt_box.position.x = 60
 		
 	var frame_index: int = animated_sprite.get_frame()
 	var animation_name: String = animated_sprite.animation

@@ -57,14 +57,13 @@ sprite_frames = SubResource("SpriteFrames_fba83")
 animation = &"explosion"
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(9, -68)
 shape = SubResource("CircleShape2D_puqva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, -44)
 shape = SubResource("CircleShape2D_tvl4x")
 disabled = true

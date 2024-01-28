@@ -7,14 +7,19 @@ extends CharacterBody2D
 var direction: Vector2
 var attack_damage: float = 10.0
 var can_move: bool = true
+@onready var sprite := $Sprite2D
+
+@onready var hit_box := $Area2D
 
 func _ready():
 	velocity = direction * movement_speed
 	if velocity.x > 0:
-		$Sprite2D.flip_h = false
+		sprite.flip_h = false
 	else:
-		$Sprite2D.flip_h = true
-		global_position.x -= 256
+		sprite.flip_h = true
+		sprite.position.x -= 440
+		
+
 		
 
 func _physics_process(delta):
@@ -22,14 +27,14 @@ func _physics_process(delta):
 	
 	if duration_seconds <= 0:
 		can_move = false
-		$Sprite2D.play("explosion")
+		sprite.play("explosion")
 	
 	if not can_move:
 		return
 	
-	$Sprite2D.play("walk")
+	sprite.play("walk")
 	velocity = direction * movement_speed
-
+	
 	move_and_slide()
 
 
@@ -45,10 +50,10 @@ func hit_area(area):
 
 
 func _on_sprite_2d_frame_changed():
-	if $Sprite2D.animation == "explosion":
-		$Sprite2D.scale += Vector2(0.1, 0.1)
-		if $Sprite2D.frame == 3:
-			for area in $Area2D.get_overlapping_areas():
+	if sprite.animation == "explosion":
+		sprite.scale += Vector2(0.1, 0.1)
+		if sprite.frame == 3:
+			for area in hit_box.get_overlapping_areas():
 				hit_area(area)
 			queue_free()
 
