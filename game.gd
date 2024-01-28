@@ -6,7 +6,7 @@ extends Node2D
 @export var frenzy_threshold = 80
 
 @onready var player = $Player
-@onready var enemy_spawn = $EnemySpawner
+@onready var spawner_manager = $SpawnerManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +31,8 @@ func increase_frenzy(val: float):
 func decrease_frenzy(val: float):
 	frenzy_value -= val
 	if frenzy_value <= 0:
-		SceneManager.lose_cringe()
+		pass
+		#SceneManager.lose_cringe()
 	
 	if frenzy_value > frenzy_threshold:
 		frenzy_value -= val
@@ -41,5 +42,5 @@ func decrease_frenzy(val: float):
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
 
 func win():
-	if enemy_spawn.is_finish():
+	if spawner_manager.is_finish():
 		SceneManager.win()
