@@ -89,7 +89,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack" and animated_sprite.animation != "prepare_doggo":
 		attack()
-	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack":
+	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack" and doggo_cd_timer <= 0:
 		prepare_doggo()
 	
 	move_and_slide()
