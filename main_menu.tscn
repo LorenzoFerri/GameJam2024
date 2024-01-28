@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
 [ext_resource type="Texture2D" uid="uid://catwal2q103n3" path="res://assets/ui/titlescreen.png" id="2_mymvb"]
-[ext_resource type="Texture2D" uid="uid://dtgggl8fmj70x" path="res://assets/buttons/new game.png" id="2_r52q5"]
-[ext_resource type="Texture2D" uid="uid://c5o2c3dnf2srv" path="res://assets/buttons/credits.png" id="3_mxlv8"]
-[ext_resource type="Texture2D" uid="uid://c1vwcbc5sk84v" path="res://assets/buttons/exit.png" id="4_xdq6s"]
+[ext_resource type="Texture2D" uid="uid://dt1qj77vtnrf3" path="res://assets/buttons/btn1.png" id="3_jqqey"]
+[ext_resource type="Texture2D" uid="uid://dh5xkmsew8dbg" path="res://assets/buttons/btn2.png" id="4_mh32l"]
 [ext_resource type="Texture2D" uid="uid://yw2njrkjeypd" path="res://assets/buttons/arrow.png" id="5_0xtmr"]
+[ext_resource type="Texture2D" uid="uid://buh4kuiml2hwp" path="res://assets/buttons/btn3.png" id="5_2lejq"]
 [ext_resource type="Texture2D" uid="uid://bx0qt1c4ujd73" path="res://assets/Player/attack1.png" id="6_06x8j"]
 [ext_resource type="Texture2D" uid="uid://dkvdi67xeqjfb" path="res://assets/ui/menuanim/IMG_1610.png" id="8_7gatt"]
 [ext_resource type="Texture2D" uid="uid://d1j64m7ky246s" path="res://assets/ui/menuanim/IMG_1611.png" id="9_ake2s"]
@@ -52,29 +52,32 @@ expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 366.0
-offset_top = 80.0
-offset_right = 878.0
-offset_bottom = 508.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -585.0
+offset_top = -457.0
+offset_right = -36.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="New Game" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_r52q5")
+size_flags_vertical = 6
+texture_normal = ExtResource("3_jqqey")
 
 [node name="Credits" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_mxlv8")
+size_flags_vertical = 6
+texture_normal = ExtResource("4_mh32l")
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_xdq6s")
+size_flags_vertical = 6
+texture_normal = ExtResource("5_2lejq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
