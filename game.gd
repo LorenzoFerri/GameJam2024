@@ -17,6 +17,8 @@ var bimbo_noia = preload("res://assets/ui/fun_bar/Bambino noia.png")
 @onready var spawner_manager = $SpawnerManager
 @onready var pause_screen = $CanvasLayer/PauseScreen
 
+var wave_paused: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.global_position = SceneManager.current_player_pos
@@ -25,11 +27,11 @@ func _ready():
 func _process(delta):
 	if spawner_manager.is_finish():
 		win()
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	decrease_frenzy(delta * 4)
+	if !wave_paused:
+		decrease_frenzy(delta * 4)
 
 func increase_frenzy(val: float):
 	frenzy_value += val
@@ -77,8 +79,10 @@ func win():
 
 func _on_spawner_manager_wave_paused(is_paused: bool):
 	if is_paused:
+		wave_paused = true
 		player.heal()
 	else:
+		wave_paused = false
 		player.stop_heal()
 
 
