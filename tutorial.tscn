@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cm0cq5gno4ubu"]
+[gd_scene load_steps=14 format=3 uid="uid://cm0cq5gno4ubu"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_oagyf"]
 [ext_resource type="Texture2D" uid="uid://cxmpo6trx4ng7" path="res://assets/map/Stanza ospedale.png" id="2_ueq31"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="5_02tm0"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="6_1a5tb"]
 [ext_resource type="PackedScene" uid="uid://os081xsiie2t" path="res://features/child/Child.tscn" id="6_8rkr2"]
+[ext_resource type="Texture2D" uid="uid://qw4cm8dh3wl4" path="res://assets/tutorial/controls.png" id="7_i4tj5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_ueq31")
@@ -1986,3 +1987,15 @@ position = Vector2(251, 287)
 [node name="HurtInfermiera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_1a5tb")]
 position = Vector2(1156, 364)
 target = NodePath(".")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 637.0
+offset_right = 446.0
+offset_bottom = 1037.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_i4tj5")
