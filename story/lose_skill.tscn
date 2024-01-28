@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dixi7d314u720"]
 
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_emn7h"]
-[ext_resource type="Texture2D" uid="uid://bod1ainq3e85t" path="res://assets/end/lose_skill.png" id="2_b3lgy"]
+[ext_resource type="Texture2D" uid="uid://dnsvtwmhhbi23" path="res://assets/end/final.PNG" id="2_fr6h1"]
 
 [node name="LoseSkill" type="Control"]
 layout_mode = 3
@@ -13,6 +13,5 @@ grow_vertical = 2
 
 [node name="Slideshow" parent="." instance=ExtResource("1_emn7h")]
 layout_mode = 1
-images = Array[Texture]([ExtResource("2_b3lgy")])
-texts = Array[String]([""])
+images = Array[Texture]([ExtResource("2_fr6h1")])
 next_scene = "res://main_menu.tscn"

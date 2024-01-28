@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://culf06me5fnub"]
 
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_bnr00"]
-[ext_resource type="Texture2D" uid="uid://bx653ff0wy7j0" path="res://assets/end/win.png" id="2_bhebk"]
+[ext_resource type="Texture2D" uid="uid://ccehd70dbs1r2" path="res://assets/end/YOUWIN.png" id="2_ma120"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -13,6 +13,5 @@ grow_vertical = 2
 
 [node name="Slideshow" parent="." instance=ExtResource("1_bnr00")]
 layout_mode = 1
-images = Array[Texture]([ExtResource("2_bhebk")])
-texts = Array[String]([""])
+images = Array[Texture]([ExtResource("2_ma120")])
 next_scene = "res://main_menu.tscn"

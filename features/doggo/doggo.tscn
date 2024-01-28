@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpl3ba7xq5684"]
+
+[ext_resource type="Script" path="res://features/doggo/doggo.gd" id="1_e4uw5"]
+[ext_resource type="Texture2D" uid="uid://dgifq1u0ilqfn" path="res://assets/Cane fatto bene.png" id="1_i5lym"]
+[ext_resource type="Texture2D" uid="uid://dudmlrjrt0sef" path="res://assets/exploggo/IMG_1555.png" id="2_ead24"]
+[ext_resource type="Texture2D" uid="uid://xce85st013vu" path="res://assets/Cane fatto bene - Copy.png" id="2_k7jh0"]
+[ext_resource type="Texture2D" uid="uid://3uwp2kl23s4j" path="res://assets/exploggo/IMG_1556.png" id="3_qh18b"]
+[ext_resource type="Texture2D" uid="uid://b3js4321gn42a" path="res://assets/exploggo/IMG_1557.png" id="4_2sij1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fba83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ead24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qh18b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2sij1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2sij1")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i5lym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k7jh0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puqva"]
+radius = 239.209
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvl4x"]
+radius = 45.0444
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhofy"]
+radius = 120.0
+
+[node name="Doggo" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_e4uw5")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(213, -259)
+sprite_frames = SubResource("SpriteFrames_fba83")
+animation = &"explosion"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(9, -68)
+shape = SubResource("CircleShape2D_puqva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -44)
+shape = SubResource("CircleShape2D_tvl4x")
+disabled = true
+
+[node name="DetonateArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetonateArea"]
+position = Vector2(12, -62)
+shape = SubResource("CircleShape2D_xhofy")
+
+[connection signal="animation_looped" from="Sprite2D" to="." method="_on_sprite_2d_animation_looped"]
+[connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
+[connection signal="area_entered" from="DetonateArea" to="." method="_on_detonate_area_area_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://m533idel4je8"]
+
+[ext_resource type="Script" path="res://components/SpawnerManager.gd" id="1_bfumt"]
+
+[node name="SpawnerManager" type="Node"]
+script = ExtResource("1_bfumt")
+
+[node name="WaveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

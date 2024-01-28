@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bubauy1bm0yw2"]
+[gd_scene load_steps=8 format=3 uid="uid://bubauy1bm0yw2"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
+[ext_resource type="Texture2D" uid="uid://catwal2q103n3" path="res://assets/ui/titlescreen.png" id="2_mymvb"]
+[ext_resource type="Texture2D" uid="uid://dtgggl8fmj70x" path="res://assets/buttons/new game.png" id="2_r52q5"]
+[ext_resource type="Texture2D" uid="uid://c5o2c3dnf2srv" path="res://assets/buttons/credits.png" id="3_mxlv8"]
+[ext_resource type="Texture2D" uid="uid://c1vwcbc5sk84v" path="res://assets/buttons/exit.png" id="4_xdq6s"]
+[ext_resource type="Texture2D" uid="uid://yw2njrkjeypd" path="res://assets/buttons/arrow.png" id="5_0xtmr"]
+[ext_resource type="Texture2D" uid="uid://bx0qt1c4ujd73" path="res://assets/Player/attack1.png" id="6_06x8j"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,6 +17,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wqgsw")
 
+[node name="Sfondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mymvb")
+expand_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -18,25 +34,127 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -50.5
-offset_right = 46.5
-offset_bottom = 50.5
+offset_left = 366.0
+offset_top = 80.0
+offset_right = 878.0
+offset_bottom = 508.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="New Game" type="Button" parent="VBoxContainer"]
+[node name="New Game" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "New Game"
+texture_normal = ExtResource("2_r52q5")
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+texture_normal = ExtResource("3_mxlv8")
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Exit"
+texture_normal = ExtResource("4_xdq6s")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -490.0
+offset_right = 329.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.796078)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -448.0
+offset_right = 172.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 26
+bbcode_enabled = true
+text = "[center]
+[b]Clown Therapy[/b]
+by Radical Games
+
+[b]Programming[/b]
+Riccardo Gabriele
+Michele Lustro
+Lorenzo Ferri
+Amanda Marchetti
+Aron Fiechter
+
+[b]Art[/b]
+Mina Caviezel
+Dasha Gabriele
+Kimi Rusconi
+Giada Mona
+Mariantonietta Morabito
+
+[b]Management and Design[/b]
+Jacopo Fidacaro
+Thomas Del Prete
+
+[b]Sounds[/b]
+Giuseppe Sambrotta
+[/center]"
+
+[node name="CreditsIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 850.0
+offset_right = 1107.0
+offset_bottom = 908.0
+scale = Vector2(17.6047, 4.15126)
+texture = ExtResource("6_06x8j")
+expand_mode = 1
+
+[node name="NewGameArrow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1264.0
+offset_top = 654.0
+offset_right = 1328.0
+offset_bottom = 718.0
+texture = ExtResource("5_0xtmr")
+
+[node name="CreditsArrow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1264.0
+offset_top = 799.0
+offset_right = 1328.0
+offset_bottom = 863.0
+texture = ExtResource("5_0xtmr")
+
+[node name="ExitArrow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1264.0
+offset_top = 945.0
+offset_right = 1328.0
+offset_bottom = 1009.0
+texture = ExtResource("5_0xtmr")
+
+[connection signal="focus_entered" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Credits" to="." method="_on_credits_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Credits" to="." method="_on_credits_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Exit" to="." method="_on_exit_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

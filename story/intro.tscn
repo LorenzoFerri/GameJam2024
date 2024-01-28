@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bci3xbqklevps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_4t4wl"]
-[ext_resource type="Texture2D" uid="uid://d125835e0m2fp" path="res://assets/intro/slide1.png" id="2_mqgck"]
-[ext_resource type="Texture2D" uid="uid://b744gdnsbchqr" path="res://assets/intro/slide2.png" id="3_enhlc"]
-[ext_resource type="Texture2D" uid="uid://oatu8w0qr226" path="res://assets/intro/slide3.png" id="4_6neu6"]
+[ext_resource type="Texture2D" uid="uid://c54fa3j0naqcf" path="res://assets/intro/1 FINITO.png" id="2_82t4n"]
+[ext_resource type="Texture2D" uid="uid://cvjrsy2ab8kip" path="res://assets/intro/2 FINITO.png" id="3_g4pwk"]
+[ext_resource type="Texture2D" uid="uid://b52wg1l0dwx77" path="res://assets/intro/3 FINITO.png" id="4_te1m4"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -15,6 +15,5 @@ grow_vertical = 2
 
 [node name="Slideshow" parent="." instance=ExtResource("1_4t4wl")]
 layout_mode = 1
-images = Array[Texture]([ExtResource("2_mqgck"), ExtResource("3_enhlc"), ExtResource("4_6neu6")])
-texts = Array[String](["Il clown prova a far ridere il bambino malato, ma il bambino non sembra divertito.", "Un'infermiera entra e inciampa cadendo di faccia.", "Il bambino scoppia a ridere. Il clown capisce che per divertire il bambino serve la violenza."])
-next_scene = "res://tutorial.tscn"
+images = Array[Texture]([ExtResource("2_82t4n"), ExtResource("3_g4pwk"), ExtResource("4_te1m4")])
+next_scene = "res://game.tscn"

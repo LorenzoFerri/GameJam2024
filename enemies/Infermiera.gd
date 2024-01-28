@@ -3,11 +3,10 @@ extends CharacterBody2D
 var movement_speed: float = 200.0
 var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
-@export var attack_range: float = 180.0
+@export var attack_range: float = 120.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var health_component = $HealthComponent
-@onready var hp_label = $HpLabel
 @onready var sprite = $Sprite
 @onready var AI_component = $AIComponent
 @onready var hit_box = $HitBox
@@ -43,21 +42,21 @@ func _physics_process(delta):
 	set_movement_target(target.global_position)
 	if navigation_agent.is_navigation_finished():
 		if not AI_component.is_attacking:
-			hit_box_polygon.visible = false
+			#hit_box_polygon.visible = false
 			AI_component.start_attack()
 			if global_position.direction_to(target.global_position).x > 0:
 				sprite.scale.x = abs(sprite.scale.x)
 			else:
 				sprite.scale.x = abs(sprite.scale.x) * -1
 			hit_box.look_at(target.global_position)
-			hit_box_polygon.look_at(target.global_position)
+			#hit_box_polygon.look_at(target.global_position)
 		return
 	
 	if AI_component.is_attacking:
 		return
 		
 	hit_box.look_at(target.global_position)
-	hit_box_polygon.visible = false
+	#hit_box_polygon.visible = false
 
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
@@ -77,7 +76,7 @@ func on_is_dead():
 	queue_free()
 
 func update_health(old_value, new_value):
-	hp_label.text = str(new_value)
+	pass
 
 
 func _on_health_component_took_damage(old_value, new_value):
