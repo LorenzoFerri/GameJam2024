@@ -29,7 +29,7 @@ var last_direction: Vector2 = Vector2.RIGHT
 var saved_doggo_dir = Vector2.ZERO
 
 @export var doggo_cooldown := 1.0
-var doggo_cd_timer = 0
+var doggo_cd_timer = 1.0
 var is_on_frenzy = false
 
 var is_healing: bool = false
