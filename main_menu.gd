@@ -6,6 +6,7 @@ func _ready():
 	randomize()
 	_on_new_game_focus_entered()
 	$"VBoxContainer/New Game".grab_focus()
+	$MainSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

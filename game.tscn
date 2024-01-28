@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=24 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bmq6isscjafnv" path="res://assets/sounds/loss_screen_boring.wav" id="13_yqx8k"]
 [ext_resource type="AudioStream" uid="uid://cb7r8i0834oft" path="res://assets/sounds/surgeon_death.wav" id="14_tpj85"]
 [ext_resource type="AudioStream" uid="uid://dbpxvn01f8e57" path="res://assets/sounds/risataBimbo_corta.wav" id="15_e6kv3"]
+[ext_resource type="AudioStream" uid="uid://dcihu4undftcs" path="res://assets/sounds/ingame_music_TOBELOOPED.wav" id="17_exm5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_lv08r")
@@ -2087,4 +2088,8 @@ stream = ExtResource("14_tpj85")
 [node name="FrenzySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_e6kv3")
 
+[node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_exm5c")
+
 [connection signal="wave_paused" from="SpawnerManager" to="." method="_on_spawner_manager_wave_paused"]
+[connection signal="finished" from="Soundtrack" to="." method="_on_soundtrack_finished"]

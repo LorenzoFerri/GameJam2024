@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://culf06me5fnub"]
+[gd_scene load_steps=5 format=3 uid="uid://culf06me5fnub"]
 
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_bnr00"]
+[ext_resource type="Script" path="res://story/win.gd" id="1_vadda"]
 [ext_resource type="Texture2D" uid="uid://ccehd70dbs1r2" path="res://assets/end/YOUWIN.png" id="2_ma120"]
+[ext_resource type="AudioStream" uid="uid://d2sjlxodeckfe" path="res://assets/sounds/win_screen.wav" id="4_5qwid"]
 
 [node name="Win" type="Control"]
 layout_mode = 3
@@ -10,8 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vadda")
 
 [node name="Slideshow" parent="." instance=ExtResource("1_bnr00")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_ma120")])
 next_scene = "res://main_menu.tscn"
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5qwid")

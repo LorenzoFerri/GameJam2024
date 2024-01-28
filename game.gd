@@ -20,7 +20,7 @@ var bimbo_noia = preload("res://assets/ui/fun_bar/Bambino noia.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.global_position = SceneManager.current_player_pos
-	pass
+	$Soundtrack.play()
 	
 func _process(delta):
 	if spawner_manager.is_finish():
@@ -80,3 +80,7 @@ func _on_spawner_manager_wave_paused(is_paused: bool):
 		player.heal()
 	else:
 		player.stop_heal()
+
+
+func _on_soundtrack_finished():
+	$Soundtrack.play()

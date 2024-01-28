@@ -29,4 +29,5 @@ func _on_area_2d_area_entered(area):
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
 		area.get_parent().get_parent().increase_frenzy(12)
+		area.get_parent().get_node("BisturiHitSound").play()
 		queue_free()
