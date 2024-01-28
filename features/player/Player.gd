@@ -37,7 +37,7 @@ func _process(delta):
 		health_component.heal_damage(delta * 6)
 
 func _physics_process(delta):
-	if animated_sprite.animation != "attack":
+	if animated_sprite.animation != "attack" and animated_sprite.animation != "prepare_doggo":
 		var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 		direction = Vector2(direction_x,direction_y).normalized()
@@ -86,9 +86,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack":
 		attack()
 	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack":
-		launch_doggo()
+		prepare_doggo()
 	
 	move_and_slide()
+
+func prepare_doggo():
+	animated_sprite.play("prepare_doggo")
 
 func dash():
 	if dash_cooldown.is_stopped():
@@ -109,7 +112,7 @@ func attack():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	if animated_sprite.animation == "attack":
+	if animated_sprite.animation == "attack" or animated_sprite.animation == "prepare_doggo":
 		animated_sprite.play("idle")
 		animated_sprite.offset = Vector2.ZERO
 		dash_particle.process_material.emission_shape_offset = Vector3.ZERO
@@ -130,6 +133,14 @@ func _on_animated_sprite_2d_frame_changed():
 		if animated_sprite.frame == 6:
 			smear.visible = false
 			direction /= 10
+	
+	if animated_sprite.animation == "prepare_doggo":
+		if animated_sprite.frame == 7:
+			launch_doggo()
+	
+	if animated_sprite.animation == "prepare_doggo":
+		if animated_sprite.frame == 12:
+			animated_sprite.play("idle")
 
 func update_health(old_value, new_value):
 	hp_bar.value = new_value

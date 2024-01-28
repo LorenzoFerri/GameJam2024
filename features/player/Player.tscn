@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://8e4v6f5px6rd"]
+[gd_scene load_steps=47 format=3 uid="uid://8e4v6f5px6rd"]
 
 [ext_resource type="Script" path="res://features/player/Player.gd" id="1_oweex"]
 [ext_resource type="Texture2D" uid="uid://cqq3es1wfx582" path="res://assets/Player/attack/IMG_1492.png" id="5_jtfjc"]
@@ -13,12 +13,23 @@
 [ext_resource type="Texture2D" uid="uid://dlhu3owe1xupl" path="res://assets/Player/walk/IMG_1442.png" id="10_cpbpp"]
 [ext_resource type="Texture2D" uid="uid://cx157gqisv3ms" path="res://assets/Player/walk/IMG_1444.png" id="11_1d78p"]
 [ext_resource type="Texture2D" uid="uid://c47bkr78ay1us" path="res://assets/Player/attack/IMG_1498.png" id="11_itsxb"]
+[ext_resource type="Texture2D" uid="uid://b8u1kglhnlo2l" path="res://assets/Player/Deploy cane/IMG_1592.png" id="12_8kery"]
+[ext_resource type="Texture2D" uid="uid://7bw4l0lf7371" path="res://assets/Player/Deploy cane/IMG_1590.png" id="12_8o31p"]
 [ext_resource type="Texture2D" uid="uid://do8ql8dvf1yi2" path="res://assets/Player/walk/IMG_1445.png" id="12_ccam8"]
+[ext_resource type="Texture2D" uid="uid://concw3qcqkocv" path="res://assets/Player/Deploy cane/IMG_1593.png" id="13_7qedp"]
 [ext_resource type="Texture2D" uid="uid://bkcyshu3gerxn" path="res://assets/Player/walk/IMG_1446.png" id="13_hok7f"]
+[ext_resource type="Texture2D" uid="uid://tubqhlfdc5jh" path="res://assets/Player/Deploy cane/IMG_1591.png" id="13_j7tnq"]
+[ext_resource type="Texture2D" uid="uid://v2fjvo2so0lm" path="res://assets/Player/Deploy cane/IMG_1594.png" id="14_fgoyj"]
+[ext_resource type="Texture2D" uid="uid://c3x42wc812ygt" path="res://assets/Player/Deploy cane/IMG_1595.png" id="15_agixf"]
 [ext_resource type="Texture2D" uid="uid://d0rramdxj3caf" path="res://assets/star.png" id="16_08qxa"]
+[ext_resource type="Texture2D" uid="uid://444did3ovjh5" path="res://assets/Player/Deploy cane/IMG_1596.png" id="16_jpqin"]
 [ext_resource type="Texture2D" uid="uid://c2cvhwwo77q5i" path="res://assets/ui/health_bar/Palloncino health.png" id="17_qsroe"]
+[ext_resource type="Texture2D" uid="uid://dihkmhnkjdgcf" path="res://assets/Player/Deploy cane/IMG_1597.png" id="17_wxd5o"]
+[ext_resource type="Texture2D" uid="uid://ch4u0pwkyn2k1" path="res://assets/Player/Deploy cane/IMG_1598.png" id="18_7xf1e"]
 [ext_resource type="Texture2D" uid="uid://dp610vxe8tttv" path="res://assets/ui/health_bar/Health.png" id="18_nbv1i"]
 [ext_resource type="Texture2D" uid="uid://csllorceo3haa" path="res://assets/ui/health_bar/Clown felice.png" id="19_6ufxj"]
+[ext_resource type="Texture2D" uid="uid://bhrh8xma2h5mt" path="res://assets/Player/Deploy cane/IMG_1599.png" id="19_rk835"]
+[ext_resource type="Texture2D" uid="uid://op3hcq63tiit" path="res://assets/Player/Deploy cane/IMG_1600.png" id="20_evrqm"]
 
 [sub_resource type="Curve" id="Curve_nhh7f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.183372), 0.0, 0.0, 0, 0]
@@ -103,6 +114,50 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_8o31p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j7tnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8o31p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j7tnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8kery")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7qedp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fgoyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_agixf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jpqin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wxd5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7xf1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rk835")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_evrqm")
+}],
+"loop": true,
+"name": &"prepare_doggo",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -255,8 +310,10 @@ polygon = PackedVector2Array(-145, -213.75, -93.75, -180, -47.5, -126.25, -13.75
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8yisj")
-animation = &"attack"
+animation = &"prepare_doggo"
 autoplay = "idle"
+frame = 7
+frame_progress = 0.0717988
 
 [node name="Star" type="Sprite2D" parent="AnimatedSprite2D"]
 visible = false
