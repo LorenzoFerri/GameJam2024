@@ -45,7 +45,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 9.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -93,7 +93,7 @@ radius = 91.25
 height = 265.0
 
 [node name="Dottore" type="CharacterBody2D"]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.7, 0.7)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_s8s06")
@@ -146,8 +146,8 @@ libraries = {
 }
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(15, -106.25)

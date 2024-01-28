@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var doggo_scene = preload("res://features/doggo/doggo.tscn")
 
 @export var speed = 600.0
 @export var damping = 0.6
@@ -17,6 +18,9 @@ var dash_speed = 0
 @onready var frenzy_particles := $FrenzyParticles
 var direction = Vector2.ZERO
 var last_direction: Vector2 = Vector2.RIGHT
+
+@export var doggo_cooldown := 1.0
+var doggo_cd_timer = 0
 
 func _physics_process(delta):
 	if animated_sprite.animation != "attack":
@@ -56,12 +60,17 @@ func _physics_process(delta):
 	if dash_speed <= 200:
 		dash_particle.emitting = false
 		set_collision_mask_value(2, true)
+	
+	if doggo_cd_timer > 0:
+		doggo_cd_timer -= delta
 		
 	if Input.is_action_just_pressed("dash"):
 		dash()
 		
 	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack":
 		attack()
+	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack":
+		launch_doggo()
 	move_and_slide()
 
 	
@@ -127,3 +136,19 @@ func _on_health_component_is_dead():
 	
 func _on_health_component_took_damage(old_value, new_value):
 	animation_player.play("took_damage")
+
+func launch_doggo():
+	if doggo_cd_timer > 0:
+		return
+	doggo_cd_timer = doggo_cooldown
+	var doggo = doggo_scene.instantiate()
+	doggo.global_position = global_position
+	doggo.global_position.y += 100
+	
+	var direction_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var direction_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	doggo.direction = Vector2(direction_x, direction_y).normalized()
+	if doggo.direction.length() == 0:
+		doggo.direction = last_direction.normalized()
+	
+	add_sibling(doggo)

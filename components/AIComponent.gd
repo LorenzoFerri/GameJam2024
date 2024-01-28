@@ -14,6 +14,8 @@ var is_attacking: bool = false
 @onready var hitbox: Area2D = get_parent().get_node("HitBox")
 @onready var hitbox_polygon = get_parent().get_node("HitboxPolygon")
 
+var saved_bisturi_destination = Vector2(0, 0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.animation_looped.connect(attack_anim_ended)
@@ -52,13 +54,14 @@ func on_frame_changed():
 		if sprite.get_frame() == 5:
 			hitbox_polygon.visible = true
 	else:
+		if sprite.get_frame() == 3:
+			saved_bisturi_destination = get_parent().target.global_position
 		if sprite.get_frame() == 5:
 			var bisturi = bisturi_scene.instantiate()
 			bisturi.attack_damage = attack_damage
 			bisturi.global_position = get_parent().global_position
-			bisturi.target = get_parent().target
-			#bisturi.rotation_degrees = atan(get_parent().target.global_position.y / get_parent().target.global_position.x)
-			print(bisturi.rotation)
+			bisturi.global_position.y -= 200
+			bisturi.destination = saved_bisturi_destination
 			get_parent().add_sibling(bisturi)
 
 func hit_body(body):

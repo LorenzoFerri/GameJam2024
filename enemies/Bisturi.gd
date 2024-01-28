@@ -2,12 +2,8 @@ extends CharacterBody2D
 
 
 @export var movement_speed = 350.0
-var target: Node2D
 var destination: Vector2
 var attack_damage: float
-
-func _ready():
-	destination = target.global_position
 
 func _physics_process(delta):
 	
