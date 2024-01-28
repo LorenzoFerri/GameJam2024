@@ -16,5 +16,4 @@ grow_vertical = 2
 [node name="Slideshow" parent="." instance=ExtResource("1_4t4wl")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_82t4n"), ExtResource("3_g4pwk"), ExtResource("4_te1m4")])
-texts = Array[String](["Il clown prova a far ridere il bambino malato, ma il bambino non sembra divertito.", "Un'infermiera entra e inciampa cadendo di faccia.", "Il bambino scoppia a ridere. Il clown capisce che per divertire il bambino serve la violenza."])
 next_scene = "res://game.tscn"

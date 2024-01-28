@@ -1,7 +1,6 @@
 extends Control
 
 @export var images: Array[Texture]
-@export var texts: Array[String]
 @export var next_scene: String
 
 var current = 0
