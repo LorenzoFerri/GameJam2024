@@ -2,7 +2,7 @@ extends Marker2D
 
 @export var wave_max_number: int = 5
 @export var displayable_enemies: int = 2
-@export var spawn_timer_timeout: int = 7
+@export var spawn_timer_timeout: int = 8
 var enemy_scene = preload("res://enemies/Dottore.tscn")
 
 @onready var spawn_timer: Timer = $MedicoSpawnTimer
