@@ -26,7 +26,6 @@ func _on_settings_pressed():
 	#SceneManager.goto_scene("res://settings.tscn")
 	$ColorRect.visible = true
 	$CreditsIcon.visible = true
-	$AudioStreamPlayer2D.play()
 
 
 func _on_new_game_pressed():

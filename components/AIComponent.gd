@@ -35,6 +35,7 @@ func _process(delta):
 func start_attack():
 	is_attacking = true
 	sprite.play("attack")
+	get_parent().get_node("AttackSound").play()
 
 func attack_anim_ended():
 	if not is_attacking:
