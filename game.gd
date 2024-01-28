@@ -1,6 +1,10 @@
 extends Node2D
 
 
+var high_frenzy = preload("res://assets/ui/fun_bar/Gialla.png")
+var normal_frenzy = preload("res://assets/ui/fun_bar/Blu.png")
+var low_frenzy = preload("res://assets/ui/fun_bar/Grigio.png")
+
 @export var frenzy_value: float = 70
 @onready var frenzy_bar = $CanvasLayer/FrenzyBar
 @export var frenzy_threshold = 80
@@ -24,6 +28,11 @@ func increase_frenzy(val: float):
 	if frenzy_value > 100:
 		frenzy_value = 100
 	
+	if frenzy_value >= 80:
+		frenzy_bar.texture_progress = high_frenzy
+	elif frenzy_value >= 20:
+		frenzy_bar.texture_progress = normal_frenzy
+	
 	frenzy_bar.value = ceil(frenzy_value)
 	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
@@ -36,6 +45,11 @@ func decrease_frenzy(val: float):
 	
 	if frenzy_value > frenzy_threshold:
 		frenzy_value -= val
+		
+	if frenzy_value < 20:
+		frenzy_bar.texture_progress = low_frenzy
+	elif frenzy_value < 80:
+		frenzy_bar.texture_progress = normal_frenzy		
 	
 	frenzy_bar.value = ceil(frenzy_value)
 	
