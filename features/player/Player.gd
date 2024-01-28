@@ -4,6 +4,9 @@ var doggo_scene = preload("res://features/doggo/doggo.tscn")
 
 @export var speed = 600.0
 @export var damping = 0.6
+@export var frenzy_extra_speed = 50
+@export var frenzy_extra_damage = 5
+@export var attack_damage = 10
 
 @onready var dash_cooldown := $DashCooldown
 var dash_speed = 0
@@ -21,6 +24,7 @@ var last_direction: Vector2 = Vector2.RIGHT
 
 @export var doggo_cooldown := 1.0
 var doggo_cd_timer = 0
+var is_on_frenzy = false
 
 func _physics_process(delta):
 	if animated_sprite.animation != "attack":
@@ -34,6 +38,8 @@ func _physics_process(delta):
 	if direction.length():
 		last_direction = direction
 		velocity = direction * speed + direction * dash_speed
+		if is_on_frenzy:
+			velocity += Vector2.ONE * frenzy_extra_speed
 		hit_box.rotation = direction.angle()
 	else:
 		velocity *= damping
@@ -125,11 +131,15 @@ func hit_body(body):
 		return
 	var hp_comp = body.get_parent().get_node_or_null("HealthComponent")
 	if hp_comp != null:
-		hp_comp.take_damage(10)
+		var calc_damage = attack_damage
+		if is_on_frenzy:
+			calc_damage += frenzy_extra_damage
+		hp_comp.take_damage(calc_damage)
 		game.increase_frenzy(8)
 
 func set_on_frenzy(val: bool):
 	frenzy_particles.visible = val
+	is_on_frenzy = val
 
 func _on_health_component_is_dead():
 	SceneManager.lose_skill()

@@ -45,7 +45,7 @@ radius = 239.209
 radius = 45.0444
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xhofy"]
-radius = 74.027
+radius = 120.0
 
 [node name="Doggo" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
