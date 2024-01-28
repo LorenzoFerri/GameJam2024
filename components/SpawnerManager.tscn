@@ -28,10 +28,10 @@ offset_right = 1827.0
 offset_bottom = 1084.0
 texture = ExtResource("2_4gacj")
 
-[node name="NewWaveSound" type="AudioStreamPlayer2D" parent="."]
+[node name="EndWaveSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gaqaa")
 
-[node name="EndWaveSound" type="AudioStreamPlayer2D" parent="."]
+[node name="NewWaveSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qdsth")
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

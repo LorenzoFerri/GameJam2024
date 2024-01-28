@@ -61,7 +61,7 @@ func on_frame_changed():
 		if sprite.get_frame() == 5:
 			var bisturi = bisturi_scene.instantiate()
 			bisturi.attack_damage = attack_damage
-			bisturi.global_position = get_parent().global_position
+			bisturi.position = get_parent().position
 			bisturi.global_position.y -= 200
 			bisturi.destination = saved_bisturi_destination
 			get_parent().add_sibling(bisturi)

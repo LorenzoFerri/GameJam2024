@@ -150,5 +150,5 @@ shape = SubResource("CapsuleShape2D_22ids")
 
 [connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="is_dead" from="HealthComponent" to="." method="on_is_dead"]
-[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
+[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]
