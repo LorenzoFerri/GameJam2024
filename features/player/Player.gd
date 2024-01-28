@@ -15,7 +15,7 @@ var dash_speed = 0
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hit_box := $HitBox
 @onready var smear := $HitBox/Smear
-@onready var hp_bar := $CanvasLayer/HealtBar
+@onready var hp_bar := $CanvasLayer/HealthBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
 @onready var frenzy_particles := $FrenzyParticles
@@ -25,6 +25,7 @@ var last_direction: Vector2 = Vector2.RIGHT
 @export var doggo_cooldown := 1.0
 var doggo_cd_timer = 0
 var is_on_frenzy = false
+
 
 func _physics_process(delta):
 	if animated_sprite.animation != "attack":

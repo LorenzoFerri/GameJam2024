@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://8e4v6f5px6rd"]
+[gd_scene load_steps=35 format=3 uid="uid://8e4v6f5px6rd"]
 
 [ext_resource type="Script" path="res://features/player/Player.gd" id="1_oweex"]
 [ext_resource type="Texture2D" uid="uid://cqq3es1wfx582" path="res://assets/Player/attack/IMG_1492.png" id="5_jtfjc"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://do8ql8dvf1yi2" path="res://assets/Player/walk/IMG_1445.png" id="12_ccam8"]
 [ext_resource type="Texture2D" uid="uid://bkcyshu3gerxn" path="res://assets/Player/walk/IMG_1446.png" id="13_hok7f"]
 [ext_resource type="Texture2D" uid="uid://d0rramdxj3caf" path="res://assets/star.png" id="16_08qxa"]
+[ext_resource type="Texture2D" uid="uid://c2cvhwwo77q5i" path="res://assets/ui/health_bar/Palloncino health.png" id="17_qsroe"]
+[ext_resource type="Texture2D" uid="uid://dp610vxe8tttv" path="res://assets/ui/health_bar/Health.png" id="18_nbv1i"]
 
 [sub_resource type="Curve" id="Curve_nhh7f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.183372), 0.0, 0.0, 0, 0]
@@ -269,15 +271,17 @@ libraries = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealtBar" type="ProgressBar" parent="CanvasLayer"]
-modulate = Color(0.282353, 1, 0, 1)
-offset_left = 223.0
-offset_top = 176.0
-offset_right = 733.0
-offset_bottom = 231.0
-size_flags_horizontal = 0
-value = 100.0
-rounded = true
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 598.0
+offset_top = 704.0
+offset_right = 1238.0
+offset_bottom = 1344.0
+max_value = 110.0
+step = 0.01
+value = 110.0
+texture_over = ExtResource("17_qsroe")
+texture_progress = ExtResource("18_nbv1i")
+texture_progress_offset = Vector2(-10, 0)
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 3

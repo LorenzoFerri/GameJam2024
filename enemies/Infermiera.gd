@@ -3,7 +3,7 @@ extends CharacterBody2D
 var movement_speed: float = 200.0
 var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
-@export var attack_range: float = 180.0
+@export var attack_range: float = 120.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var health_component = $HealthComponent
