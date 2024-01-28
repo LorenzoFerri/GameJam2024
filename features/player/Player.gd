@@ -83,7 +83,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("dash"):
 		dash()
 		
-	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack":
+	if Input.is_action_just_pressed("attack") and animated_sprite.animation != "attack" and animated_sprite.animation != "prepare_doggo":
 		attack()
 	if Input.is_action_just_pressed("doggo") and animated_sprite.animation != "attack":
 		prepare_doggo()
@@ -135,6 +135,8 @@ func _on_animated_sprite_2d_frame_changed():
 			direction /= 10
 	
 	if animated_sprite.animation == "prepare_doggo":
+		if animated_sprite.frame == 1:
+			direction = Vector2.ZERO
 		if animated_sprite.frame == 7:
 			launch_doggo()
 	

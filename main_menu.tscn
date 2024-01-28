@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bubauy1bm0yw2"]
+[gd_scene load_steps=12 format=3 uid="uid://bubauy1bm0yw2"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
 [ext_resource type="Texture2D" uid="uid://catwal2q103n3" path="res://assets/ui/titlescreen.png" id="2_mymvb"]
@@ -7,6 +7,29 @@
 [ext_resource type="Texture2D" uid="uid://c1vwcbc5sk84v" path="res://assets/buttons/exit.png" id="4_xdq6s"]
 [ext_resource type="Texture2D" uid="uid://yw2njrkjeypd" path="res://assets/buttons/arrow.png" id="5_0xtmr"]
 [ext_resource type="Texture2D" uid="uid://bx0qt1c4ujd73" path="res://assets/Player/attack1.png" id="6_06x8j"]
+[ext_resource type="Texture2D" uid="uid://dkvdi67xeqjfb" path="res://assets/ui/menuanim/IMG_1610.png" id="8_7gatt"]
+[ext_resource type="Texture2D" uid="uid://d1j64m7ky246s" path="res://assets/ui/menuanim/IMG_1611.png" id="9_ake2s"]
+[ext_resource type="Texture2D" uid="uid://dkf287ii7780n" path="res://assets/ui/menuanim/IMG_1612.png" id="10_u5n08"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iewug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7gatt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ake2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u5n08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ake2s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -148,6 +171,12 @@ offset_top = 945.0
 offset_right = 1328.0
 offset_bottom = 1009.0
 texture = ExtResource("5_0xtmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1566, 272)
+sprite_frames = SubResource("SpriteFrames_iewug")
+autoplay = "default"
+frame_progress = 0.353258
 
 [connection signal="focus_entered" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]
