@@ -128,13 +128,6 @@ polygon = PackedVector2Array(-3, -3, 146, -168, 206, -114, 207, -17, 192, 95, 11
 [node name="HealthComponent" parent="." instance=ExtResource("16_ltvpa")]
 maxHp = 30.0
 
-[node name="HpLabel" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -153.0
-offset_right = 20.0
-offset_bottom = -130.0
-text = "100"
-
 [node name="HitboxPolygon" type="Polygon2D" parent="."]
 visible = false
 color = Color(1, 0, 0, 0.196078)
@@ -155,5 +148,5 @@ shape = SubResource("CapsuleShape2D_22ids")
 
 [connection signal="healed_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="is_dead" from="HealthComponent" to="." method="on_is_dead"]
-[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]
 [connection signal="took_damage" from="HealthComponent" to="." method="_on_health_component_took_damage"]
+[connection signal="took_damage" from="HealthComponent" to="." method="update_health"]

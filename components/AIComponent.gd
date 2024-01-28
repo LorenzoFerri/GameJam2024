@@ -52,7 +52,8 @@ func on_frame_changed():
 				hit_body(body)
 		
 		if sprite.get_frame() == 5:
-			hitbox_polygon.visible = true
+			pass
+			#hitbox_polygon.visible = true
 	else:
 		if sprite.get_frame() == 3:
 			saved_bisturi_destination = get_parent().target.global_position

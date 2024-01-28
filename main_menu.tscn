@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bubauy1bm0yw2"]
+[gd_scene load_steps=7 format=3 uid="uid://bubauy1bm0yw2"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
 [ext_resource type="Texture2D" uid="uid://dtgggl8fmj70x" path="res://assets/buttons/new game.png" id="2_r52q5"]
+[ext_resource type="Texture2D" uid="uid://dmnvmulr2ujx5" path="res://assets/ui/ICONA.png" id="2_upaio"]
 [ext_resource type="Texture2D" uid="uid://c5o2c3dnf2srv" path="res://assets/buttons/credits.png" id="3_mxlv8"]
 [ext_resource type="Texture2D" uid="uid://c1vwcbc5sk84v" path="res://assets/buttons/exit.png" id="4_xdq6s"]
 [ext_resource type="Texture2D" uid="uid://yw2njrkjeypd" path="res://assets/buttons/arrow.png" id="5_0xtmr"]
@@ -14,6 +15,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wqgsw")
+
+[node name="Sfondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -49,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -339.0
-offset_top = -495.0
-offset_right = 319.0
-offset_bottom = 485.0
+offset_left = -786.0
+offset_top = -486.0
+offset_right = -128.0
+offset_bottom = 494.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.796078)
@@ -87,18 +97,28 @@ Aron Fiechter
 [b]Art[/b]
 Mina Caviezel
 Dasha Gabriele
-Kimi
-Giada
-Maria
+Kimi Rusconi
+Giada Mona
+Mariantonietta Morabito
 
-[b]Scrum[/b]
+[b]Management and Design[/b]
 Jacopo Fidacaro
 Thomas Del Prete
 
 [b]Sounds[/b]
 Giuseppe Sambrotta
-and all the team
 [/center]"
+
+[node name="CreditsIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 879.0
+offset_top = 188.0
+offset_right = 935.0
+offset_bottom = 349.0
+scale = Vector2(17.6047, 4.15126)
+texture = ExtResource("2_upaio")
+expand_mode = 1
 
 [node name="NewGameArrow" type="TextureRect" parent="."]
 visible = false

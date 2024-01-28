@@ -7,7 +7,6 @@ var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var health_component = $HealthComponent
-@onready var hp_label = $HpLabel
 @onready var sprite = $Sprite
 @onready var AI_component = $AIComponent
 @onready var hit_box = $HitBox
@@ -77,7 +76,7 @@ func on_is_dead():
 	queue_free()
 
 func update_health(old_value, new_value):
-	hp_label.text = str(new_value)
+	pass
 
 
 func _on_health_component_took_damage(old_value, new_value):

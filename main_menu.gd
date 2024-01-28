@@ -15,14 +15,17 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouse and event.is_pressed():
 		$ColorRect.visible = false
+		$CreditsIcon.visible = false
 		
 	if event is InputEventKey and event.pressed:
 		if event.keycode != KEY_ENTER:
 			$ColorRect.visible = false
+			$CreditsIcon.visible = false
 
 func _on_settings_pressed():
 	#SceneManager.goto_scene("res://settings.tscn")
 	$ColorRect.visible = true
+	$CreditsIcon.visible = true
 
 
 func _on_new_game_pressed():
