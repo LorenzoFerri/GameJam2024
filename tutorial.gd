@@ -3,6 +3,8 @@ extends Node2D
 @onready var player = $Player
 @onready var hurt_nurse = $HurtInfermiera
 
+const frenzy_value = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hurt_nurse.health_component.maxHp = 10
