@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqfl00liuwsx1"]
+[gd_scene load_steps=18 format=3 uid="uid://cqfl00liuwsx1"]
 
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="1_qgqlc"]
 [ext_resource type="Script" path="res://game.gd" id="1_xn5e7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cnpo4bf58cblb" path="res://assets/ui/fun_bar/Fiala.png" id="6_in387"]
 [ext_resource type="Texture2D" uid="uid://ctyml1tye2m5w" path="res://assets/ui/fun_bar/Blu.png" id="7_byrn1"]
 [ext_resource type="PackedScene" uid="uid://os081xsiie2t" path="res://features/child/Child.tscn" id="7_xka4l"]
+[ext_resource type="Texture2D" uid="uid://bcn1xipshe7t7" path="res://assets/ui/fun_bar/Bambino happy(1).png" id="8_1n04q"]
 [ext_resource type="PackedScene" uid="uid://cgmn35n28db20" path="res://components/EnemySpawn.tscn" id="8_50hrc"]
 [ext_resource type="PackedScene" uid="uid://m533idel4je8" path="res://components/SpawnerManager.tscn" id="8_wsoe4"]
 
@@ -2012,6 +2013,11 @@ fill_mode = 3
 texture_over = ExtResource("6_in387")
 texture_progress = ExtResource("7_byrn1")
 texture_progress_offset = Vector2(0, 5)
+
+[node name="FacciaBimbo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(356.875, 638)
+scale = Vector2(1.35498, 1)
+texture = ExtResource("8_1n04q")
 
 [node name="Child" parent="." instance=ExtResource("7_xka4l")]
 position = Vector2(251, 287)

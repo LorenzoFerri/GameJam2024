@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var doggo_scene = preload("res://features/doggo/doggo.tscn")
+var clown_vivo = preload("res://assets/ui/health_bar/Clown felice.png")
+var clown_mroto = preload("res://assets/ui/health_bar/Clown mroto.png")
 
 @export var speed = 600.0
 @export var damping = 0.6
@@ -16,6 +18,7 @@ var dash_speed = 0
 @onready var hit_box := $HitBox
 @onready var smear := $HitBox/Smear
 @onready var hp_bar := $CanvasLayer/HealthBar
+@onready var faccia_clown := $CanvasLayer/FacciaClown
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game := get_parent()
 @onready var frenzy_particles := $FrenzyParticles
@@ -125,6 +128,10 @@ func _on_animated_sprite_2d_frame_changed():
 
 func update_health(old_value, new_value):
 	hp_bar.value = new_value
+	if new_value > 20:
+		faccia_clown.texture = clown_vivo
+	elif new_value <= 20:
+		faccia_clown.texture = clown_mroto
 
 func hit_body(body):
 	if body.get_parent().get_name() == "Player":
