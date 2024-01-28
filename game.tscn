@@ -2038,7 +2038,8 @@ position = Vector2(1407, 193)
 position = Vector2(379, 885)
 
 [node name="SpawnerManager" parent="." instance=ExtResource("8_wsoe4")]
-enemy_on_waves = Array[String](["i,i,i", "d,i,i,i,d"])
-max_enemy_on_waves = Array[int]([2, 3])
+enemy_on_waves = Array[String](["i,i,i", "i,i,i,i,i", "d", "i,d,i", "d,d,i,d,i", "i,i,i,d,i,d,d,i", "d,i,d,i,d,d,i,d,d,d"])
+max_enemy_on_waves = Array[int]([3, 3, 1, 3, 5, 5, 7])
+spawn_time_out = 3
 
 [connection signal="wave_paused" from="SpawnerManager" to="." method="_on_spawner_manager_wave_paused"]
