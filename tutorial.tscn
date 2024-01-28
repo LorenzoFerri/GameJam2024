@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8e4v6f5px6rd" path="res://features/player/Player.tscn" id="5_02tm0"]
 [ext_resource type="PackedScene" uid="uid://dga6iu5hdvowr" path="res://enemies/Infermiera.tscn" id="6_1a5tb"]
 [ext_resource type="PackedScene" uid="uid://os081xsiie2t" path="res://features/child/Child.tscn" id="6_8rkr2"]
-[ext_resource type="Texture2D" uid="uid://qw4cm8dh3wl4" path="res://assets/tutorial/controls.png" id="7_i4tj5"]
+[ext_resource type="Texture2D" uid="uid://bd8xx1duxkdyu" path="res://assets/tutorial/comandi.png" id="8_wuqpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af28l"]
 texture = ExtResource("2_ueq31")
@@ -1992,10 +1992,12 @@ target = NodePath(".")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = 637.0
-offset_right = 446.0
-offset_bottom = 1037.0
+offset_left = 640.0
+offset_top = 331.0
+offset_right = 2560.0
+offset_bottom = 1411.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_i4tj5")
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_wuqpy")
