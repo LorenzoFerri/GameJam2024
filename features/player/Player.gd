@@ -91,6 +91,7 @@ func dash():
 
 func _on_dash_cooldown_timeout():
 	dash_cooldown.stop()
+	$StarAnimation.play("star_animation")
 	
 func attack():
 	animated_sprite.play("attack")
