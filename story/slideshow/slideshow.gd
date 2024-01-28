@@ -11,7 +11,6 @@ func _ready():
 	
 func _process(delta):
 	check_next()
-	
 
 func check_next():
 	if Input.is_action_just_pressed("next"):

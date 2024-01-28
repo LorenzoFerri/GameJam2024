@@ -3,6 +3,10 @@
 [ext_resource type="Script" path="res://story/slideshow/slideshow.gd" id="1_n4ef6"]
 [ext_resource type="AudioStream" uid="uid://b7i5wculk4woq" path="res://assets/sounds/risataBimbo_lunga.wav" id="2_djn7n"]
 
+[sub_resource type="Theme" id="Theme_imw6n"]
+default_font_size = 40
+Label/colors/font_color = Color(0, 0, 0, 1)
+
 [node name="Slideshow" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -22,3 +26,16 @@ grow_vertical = 2
 
 [node name="LongLaugh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_djn7n")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1631.0
+offset_top = 985.0
+offset_right = 1881.0
+offset_bottom = 1054.0
+theme = SubResource("Theme_imw6n")
+theme_type_variation = &"HeaderMedium"
+text = "Press enter..."
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
