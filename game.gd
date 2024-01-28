@@ -18,6 +18,7 @@ var bimbo_noia = preload("res://assets/ui/fun_bar/Bambino noia.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.global_position = SceneManager.current_player_pos
 	pass
 	
 func _process(delta):
