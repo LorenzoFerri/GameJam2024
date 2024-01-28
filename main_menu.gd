@@ -37,6 +37,7 @@ func _on_exit_pressed():
 
 
 func _on_new_game_focus_entered():
+	$Popipo.play()
 	$NewGameArrow.visible = true
 	$NewGameArrow.modulate = Color(randf(), randf(), randf(), 1)
 
@@ -46,6 +47,7 @@ func _on_new_game_focus_exited():
 
 
 func _on_credits_focus_entered():
+	$Popipo.play()
 	$CreditsArrow.visible = true
 	$CreditsArrow.modulate = Color(randf(), randf(), randf(), 1)
 	
@@ -56,6 +58,7 @@ func _on_credits_focus_exited():
 
 
 func _on_exit_focus_entered():
+	$Popipo.play()
 	$ExitArrow.visible = true
 	$ExitArrow.modulate = Color(randf(), randf(), randf(), 1)
 

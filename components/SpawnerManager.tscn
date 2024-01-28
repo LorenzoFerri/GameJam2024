@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://m533idel4je8"]
+[gd_scene load_steps=5 format=3 uid="uid://m533idel4je8"]
 
 [ext_resource type="Script" path="res://components/SpawnerManager.gd" id="1_bfumt"]
 [ext_resource type="Texture2D" uid="uid://dsexoipog4hxl" path="res://assets/ui/Waveclear.png" id="2_4gacj"]
+[ext_resource type="AudioStream" uid="uid://difkuso8tk0ta" path="res://assets/sounds/NewWaveStart.wav" id="3_gaqaa"]
+[ext_resource type="AudioStream" uid="uid://7vh8gs8ynmh6" path="res://assets/sounds/WaveCompleted.wav" id="4_qdsth"]
 
 [node name="SpawnerManager" type="Node"]
 script = ExtResource("1_bfumt")
@@ -25,6 +27,12 @@ offset_top = 4.0
 offset_right = 1827.0
 offset_bottom = 1084.0
 texture = ExtResource("2_4gacj")
+
+[node name="NewWaveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gaqaa")
+
+[node name="EndWaveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qdsth")
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

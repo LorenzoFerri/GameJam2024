@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ct0xvedq7k536"]
+[gd_scene load_steps=5 format=3 uid="uid://ct0xvedq7k536"]
 
+[ext_resource type="Script" path="res://story/lose_cringe.gd" id="1_fxptm"]
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_md3vv"]
 [ext_resource type="Texture2D" uid="uid://doecn0ujha3k0" path="res://assets/end/GAME OVER bimbo annoiato.png" id="2_vlqr8"]
+[ext_resource type="AudioStream" uid="uid://bmq6isscjafnv" path="res://assets/sounds/loss_screen_boring.wav" id="4_6j4wm"]
 
 [node name="LoseCringe" type="Control"]
 layout_mode = 3
@@ -10,8 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fxptm")
 
 [node name="Slideshow" parent="." instance=ExtResource("1_md3vv")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_vlqr8")])
 next_scene = "res://main_menu.tscn"
+
+[node name="LoseCringeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6j4wm")

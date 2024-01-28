@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgmn35n28db20"]
+[gd_scene load_steps=5 format=3 uid="uid://cgmn35n28db20"]
 
 [ext_resource type="Script" path="res://components/EnemySpawn.gd" id="1_eu5ub"]
 [ext_resource type="PackedScene" uid="uid://b2ofjyuv2mi5s" path="res://components/InfermieraSpawn.tscn" id="2_mn6yw"]
 [ext_resource type="PackedScene" uid="uid://b41j31gy6v1ir" path="res://components/MedicoSpawn.tscn" id="3_2uaky"]
+[ext_resource type="AudioStream" uid="uid://bb0g3g03wlu68" path="res://assets/sounds/enemy_spawn.wav" id="4_0g0wa"]
 
 [node name="EnemySpawner" type="Marker2D"]
 script = ExtResource("1_eu5ub")
@@ -10,3 +11,6 @@ script = ExtResource("1_eu5ub")
 [node name="InfermieraSpawn" parent="." instance=ExtResource("2_mn6yw")]
 
 [node name="MedicoSpawn" parent="." instance=ExtResource("3_2uaky")]
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0g0wa")

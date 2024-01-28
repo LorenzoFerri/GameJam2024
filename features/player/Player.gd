@@ -101,6 +101,7 @@ func prepare_doggo():
 	if saved_doggo_dir.length() == 0:
 		saved_doggo_dir = last_direction.normalized()
 	animated_sprite.play("prepare_doggo")
+	$PrepareDoggoSound.play()
 
 func dash():
 	if dash_cooldown.is_stopped():
@@ -108,13 +109,16 @@ func dash():
 		set_collision_mask_value(2, false)
 		dash_cooldown.start()
 		dash_speed = 2000
+		$PressDash.play()
 
 
 func _on_dash_cooldown_timeout():
 	dash_cooldown.stop()
 	$StarAnimation.play("star_animation")
+	$DashReadySound.play()
 	
 func attack():
+	$SwordSound.play()
 	animated_sprite.play("attack")
 	animated_sprite.offset = Vector2(125, -80)
 	dash_particle.process_material.emission_shape_offset = Vector3(60, -40, 0)
@@ -178,6 +182,7 @@ func set_on_frenzy(val: bool):
 	is_on_frenzy = val
 
 func _on_health_component_is_dead():
+	$OnDeadSound.play()
 	SceneManager.lose_skill()
 	
 func _on_health_component_took_damage(old_value, new_value):

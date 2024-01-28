@@ -73,6 +73,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func on_is_dead():
+	var a = get_parent().get_node_or_null("NurseDeadSound")
+	if a != null:
+		a.play()
 	queue_free()
 
 func update_health(old_value, new_value):

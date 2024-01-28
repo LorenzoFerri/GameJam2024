@@ -75,5 +75,6 @@ func hit_body(body):
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
 		body.get_parent().get_parent().increase_frenzy(12)
+		$PlayerTakesDamage.play()
 	
 		

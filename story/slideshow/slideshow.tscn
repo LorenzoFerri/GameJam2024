@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3n3aeuhfefbl"]
+[gd_scene load_steps=3 format=3 uid="uid://c3n3aeuhfefbl"]
 
 [ext_resource type="Script" path="res://story/slideshow/slideshow.gd" id="1_n4ef6"]
+[ext_resource type="AudioStream" uid="uid://b7i5wculk4woq" path="res://assets/sounds/risataBimbo_lunga.wav" id="2_djn7n"]
 
 [node name="Slideshow" type="Control"]
 layout_mode = 3
@@ -18,3 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LongLaugh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_djn7n")

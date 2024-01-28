@@ -4,6 +4,7 @@ extends Marker2D
 @onready var medico_spawn = $MedicoSpawn
 
 func spawn(type):
+	$SpawnSound.play()
 	if type == "i":
 		infermiera_spawn.spawn_enemy()
 	else:

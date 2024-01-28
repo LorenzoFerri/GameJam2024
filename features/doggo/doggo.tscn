@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpl3ba7xq5684"]
+[gd_scene load_steps=13 format=3 uid="uid://cpl3ba7xq5684"]
 
 [ext_resource type="Script" path="res://features/doggo/doggo.gd" id="1_e4uw5"]
 [ext_resource type="Texture2D" uid="uid://dgifq1u0ilqfn" path="res://assets/Cane fatto bene.png" id="1_i5lym"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://xce85st013vu" path="res://assets/Cane fatto bene - Copy.png" id="2_k7jh0"]
 [ext_resource type="Texture2D" uid="uid://3uwp2kl23s4j" path="res://assets/exploggo/IMG_1556.png" id="3_qh18b"]
 [ext_resource type="Texture2D" uid="uid://b3js4321gn42a" path="res://assets/exploggo/IMG_1557.png" id="4_2sij1"]
+[ext_resource type="AudioStream" uid="uid://cdxpxox85l7rw" path="res://assets/sounds/dog_deployed_CanBeLoopedIfYouWant.wav" id="7_pvp3d"]
+[ext_resource type="AudioStream" uid="uid://btt5qpv1xu1wd" path="res://assets/sounds/dog_explosion.wav" id="8_ubafk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fba83"]
 animations = [{
@@ -76,6 +78,13 @@ collision_mask = 4
 position = Vector2(12, -62)
 shape = SubResource("CircleShape2D_xhofy")
 
+[node name="GoingDoggoSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pvp3d")
+
+[node name="DogExplosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ubafk")
+
 [connection signal="animation_looped" from="Sprite2D" to="." method="_on_sprite_2d_animation_looped"]
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="area_entered" from="DetonateArea" to="." method="_on_detonate_area_area_entered"]
+[connection signal="finished" from="GoingDoggoSound" to="." method="_on_going_doggo_sound_finished"]

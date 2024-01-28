@@ -21,5 +21,7 @@ func check_next():
 			current += 1
 			elapsed = 0
 			$SlideImage.texture = images[current]
+		if current == 2:
+			$LongLaugh.play()
 
 	

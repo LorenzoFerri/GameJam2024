@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bci3xbqklevps"]
+[gd_scene load_steps=7 format=3 uid="uid://bci3xbqklevps"]
 
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_4t4wl"]
+[ext_resource type="Script" path="res://story/intro.gd" id="1_cwhs0"]
 [ext_resource type="Texture2D" uid="uid://c54fa3j0naqcf" path="res://assets/intro/1 FINITO.png" id="2_82t4n"]
 [ext_resource type="Texture2D" uid="uid://cvjrsy2ab8kip" path="res://assets/intro/2 FINITO.png" id="3_g4pwk"]
 [ext_resource type="Texture2D" uid="uid://b52wg1l0dwx77" path="res://assets/intro/3 FINITO.png" id="4_te1m4"]
+[ext_resource type="AudioStream" uid="uid://dhjme6a3cs72q" path="res://assets/sounds/OnNewGamePress_makemelaugh.wav" id="6_nt517"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -12,8 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cwhs0")
 
 [node name="Slideshow" parent="." instance=ExtResource("1_4t4wl")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_82t4n"), ExtResource("3_g4pwk"), ExtResource("4_te1m4")])
 next_scene = "res://tutorial.tscn"
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nt517")

@@ -5,6 +5,9 @@ extends CharacterBody2D
 var destination: Vector2
 var attack_damage: float
 
+func _ready():
+	$SpawnSound.play()
+
 func _physics_process(delta):
 	
 	velocity = global_position.direction_to(destination) * movement_speed

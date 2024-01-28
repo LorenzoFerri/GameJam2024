@@ -45,6 +45,7 @@ func _on_spawn_timer_timeout():
 	spawn_enemy()
 
 func next_wave():
+	$NewWaveSound.play()
 	text.show()
 	spawn_timer.stop()
 	wave_timer.stop()
@@ -56,6 +57,8 @@ func _on_wave_timer_timeout():
 	wave_timer.stop()
 	spawn_timer.wait_time = 1
 	spawn_timer.start()
+	$EndWaveSound.play()
+	
 
 func is_finish():
 	if get_enemies_on_screen() == 0 && count_wave_enemies == (enemy_on_waves[count_wave].length() / 2) + 1:

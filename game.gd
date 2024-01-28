@@ -45,6 +45,9 @@ func increase_frenzy(val: float):
 	
 	frenzy_bar.value = ceil(frenzy_value)
 	
+	if frenzy_value > frenzy_threshold:
+		$FrenzySound.play()
+	
 	player.set_on_frenzy(frenzy_value > frenzy_threshold)
 
 func decrease_frenzy(val: float):

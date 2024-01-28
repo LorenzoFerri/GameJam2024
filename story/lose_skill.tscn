@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dixi7d314u720"]
+[gd_scene load_steps=5 format=3 uid="uid://dixi7d314u720"]
 
+[ext_resource type="Script" path="res://story/lose_skill.gd" id="1_6q3c2"]
 [ext_resource type="PackedScene" uid="uid://c3n3aeuhfefbl" path="res://story/slideshow/slideshow.tscn" id="1_emn7h"]
 [ext_resource type="Texture2D" uid="uid://dnsvtwmhhbi23" path="res://assets/end/final.PNG" id="2_fr6h1"]
+[ext_resource type="AudioStream" uid="uid://bmq6isscjafnv" path="res://assets/sounds/loss_screen_boring.wav" id="4_ihoc7"]
 
 [node name="LoseSkill" type="Control"]
 layout_mode = 3
@@ -10,8 +12,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6q3c2")
 
 [node name="Slideshow" parent="." instance=ExtResource("1_emn7h")]
 layout_mode = 1
 images = Array[Texture]([ExtResource("2_fr6h1")])
 next_scene = "res://main_menu.tscn"
+
+[node name="LoseCringeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ihoc7")

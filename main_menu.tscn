@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bubauy1bm0yw2"]
+[gd_scene load_steps=13 format=3 uid="uid://bubauy1bm0yw2"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_wqgsw"]
 [ext_resource type="Texture2D" uid="uid://catwal2q103n3" path="res://assets/ui/titlescreen.png" id="2_mymvb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvdi67xeqjfb" path="res://assets/ui/menuanim/IMG_1610.png" id="8_7gatt"]
 [ext_resource type="Texture2D" uid="uid://d1j64m7ky246s" path="res://assets/ui/menuanim/IMG_1611.png" id="9_ake2s"]
 [ext_resource type="Texture2D" uid="uid://dkf287ii7780n" path="res://assets/ui/menuanim/IMG_1612.png" id="10_u5n08"]
+[ext_resource type="AudioStream" uid="uid://81spntbxp2mn" path="res://assets/sounds/popipipi_UsaloPerIBottoniOQuelloCheVuoi.wav" id="11_m8isc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iewug"]
 animations = [{
@@ -135,6 +136,7 @@ Thomas Del Prete
 
 [b]Sounds[/b]
 Giuseppe Sambrotta
+Thomas Del Prete
 [/center]"
 
 [node name="CreditsIcon" type="TextureRect" parent="."]
@@ -180,6 +182,9 @@ position = Vector2(1566, 272)
 sprite_frames = SubResource("SpriteFrames_iewug")
 autoplay = "default"
 frame_progress = 0.353258
+
+[node name="Popipo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_m8isc")
 
 [connection signal="focus_entered" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/New Game" to="." method="_on_new_game_focus_exited"]

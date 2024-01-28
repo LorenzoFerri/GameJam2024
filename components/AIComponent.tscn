@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgqnxg0fofywc"]
+[gd_scene load_steps=3 format=3 uid="uid://dgqnxg0fofywc"]
 
 [ext_resource type="Script" path="res://components/AIComponent.gd" id="1_p26ho"]
+[ext_resource type="AudioStream" uid="uid://tap1lmjgybjl" path="res://assets/sounds/player_takes_damage.wav" id="2_h2768"]
 
 [node name="AIComponent" type="Node"]
 script = ExtResource("1_p26ho")
+
+[node name="PlayerTakesDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h2768")

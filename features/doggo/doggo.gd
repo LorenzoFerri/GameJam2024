@@ -18,7 +18,7 @@ func _ready():
 	else:
 		sprite.flip_h = true
 		sprite.position.x -= 440
-		
+		$GoingDoggoSound.play()
 
 		
 
@@ -45,6 +45,8 @@ func hit_area(area):
 	if hpComp != null:
 		hpComp.take_damage(attack_damage)
 		area.get_parent().get_parent().increase_frenzy(6)
+		$GoingDoggoSound.stop()
+		$DogExplosion.play()
 		queue_free()
 
 
@@ -56,6 +58,8 @@ func _on_sprite_2d_frame_changed():
 			for area in hit_box.get_overlapping_areas():
 				hit_area(area)
 			queue_free()
+			$GoingDoggoSound.stop()
+			$DogExplosion.play()
 
 
 func _on_detonate_area_area_entered(area):
@@ -64,3 +68,7 @@ func _on_detonate_area_area_entered(area):
 	if area.get_name() == "HitBox":
 		return
 	duration_seconds = 0
+
+
+func _on_going_doggo_sound_finished():
+	$GoingDoggoSound.play()
