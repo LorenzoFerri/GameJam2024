@@ -10,9 +10,17 @@ func _ready():
 func _process(delta):
 	pass
 
+func _input(event):
+	if event is InputEventMouse and event.is_pressed():
+		$ColorRect.visible = false
+		
+	if event is InputEventKey and event.pressed:
+		if event.scancode != KEY_ENTER:
+			$ColorRect.visible = false
 
 func _on_settings_pressed():
-	SceneManager.goto_scene("res://settings.tscn")
+	#SceneManager.goto_scene("res://settings.tscn")
+	$ColorRect.visible = true
 
 
 func _on_new_game_pressed():
