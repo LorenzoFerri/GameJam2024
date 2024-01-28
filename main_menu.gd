@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	_on_new_game_focus_entered()
 	$"VBoxContainer/New Game".grab_focus()
 
@@ -34,6 +35,7 @@ func _on_exit_pressed():
 
 func _on_new_game_focus_entered():
 	$NewGameArrow.visible = true
+	$NewGameArrow.modulate = Color(randf(), randf(), randf(), 1)
 
 
 func _on_new_game_focus_exited():
@@ -42,6 +44,8 @@ func _on_new_game_focus_exited():
 
 func _on_credits_focus_entered():
 	$CreditsArrow.visible = true
+	$CreditsArrow.modulate = Color(randf(), randf(), randf(), 1)
+	
 
 
 func _on_credits_focus_exited():
@@ -50,6 +54,7 @@ func _on_credits_focus_exited():
 
 func _on_exit_focus_entered():
 	$ExitArrow.visible = true
+	$ExitArrow.modulate = Color(randf(), randf(), randf(), 1)
 
 
 func _on_exit_focus_exited():
